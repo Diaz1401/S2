@@ -2,32 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package main;
+package login;
 
 import com.formdev.flatlaf.*;
-import com.jthemedetecor.OsThemeDetector;
-import java.awt.*;
-import java.util.function.Consumer;
 import javax.swing.*;
-import login.FormLogin;
+import static main.Main.ThemeListener;
+import static main.Main.Detector;
 
 /**
  *
  * @author Diaz Nuraji
  */
-public class FormMain extends javax.swing.JFrame {
+public class FormLoginFrame extends javax.swing.JFrame {
 
-    private static FormLogin formLogin;
-    private static FormMain app;
+    private static FormLoginPanel formPanel;
+    private static FormLoginFrame formFrame;
 
     /**
      * Creates new form main
      */
-    public FormMain() {
+    public FormLoginFrame() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        formLogin = new FormLogin();
-        setContentPane(formLogin);
+        formPanel = new FormLoginPanel();
+        setContentPane(formPanel);
     }
 
     /**
@@ -59,26 +57,24 @@ public class FormMain extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        final OsThemeDetector detector = OsThemeDetector.getDetector();
-        FlatLaf.registerCustomDefaultsSource("theme");
-        Consumer<Boolean> darkThemeListener = isDark -> {
+    public static void Form() {
+        ThemeListener = isDark -> {
             SwingUtilities.invokeLater(() -> {
                 if (!isDark) {
                     FlatLightLaf.setup();
                 } else {
                     FlatDarkLaf.setup();
                 }
-                if (app != null) {
-                    SwingUtilities.updateComponentTreeUI(app);
+                if (formFrame != null) {
+                    SwingUtilities.updateComponentTreeUI(formFrame);
                 } else {
-                    app = new FormMain();
-                    app.setVisible(true);
+                    formFrame = new FormLoginFrame();
+                    formFrame.setVisible(true);
                 }
             });
         };
-        darkThemeListener.accept(detector.isDark());
-        detector.registerListener(darkThemeListener);
+        ThemeListener.accept(Detector.isDark());
+        Detector.registerListener(ThemeListener);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

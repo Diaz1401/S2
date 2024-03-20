@@ -5,24 +5,32 @@
 package login;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import dashboard.FormDashboardFrame;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import koneksi.Koneksi;
 
 /**
  *
  * @author Diaz Nuraji
  */
-public class FormLogin extends javax.swing.JPanel {
+public class FormLoginPanel extends javax.swing.JPanel {
+
+    public static Connection cn;
+    public static ResultSet rs;
+    public static Statement st;
+    public static PreparedStatement pst;
 
     /**
      * Creates new form FormLogin
      */
-    public FormLogin() {
+    public FormLoginPanel() {
         initComponents();
         pnLogin.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:12;" // Sudut
                 + "background:$Login.background");
         lbTitle.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:+bold +20");
-        
     }
 
     /**
@@ -51,6 +59,11 @@ public class FormLogin extends javax.swing.JPanel {
         lbPass.setText("Password");
 
         btnLogin.setText("Login");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logo256.png"))); // NOI18N
 
@@ -78,11 +91,11 @@ public class FormLogin extends javax.swing.JPanel {
                 .addContainerGap(163, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbTitle)
+                .addComponent(btnLogin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnLogin)
+                .addComponent(lbTitle)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnLoginLayout.setVerticalGroup(
@@ -122,6 +135,30 @@ public class FormLogin extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        try {
+            // Buat kueri SQL dengan tanda tanya sebagai placeholder
+            String query = "SELECT * FROM pegawai WHERE id_pegawai = ? AND password = ?";
+            pst = Koneksi.koneksiDB().prepareStatement(query);
+
+            // Setel nilai parameter menggunakan setter PreparedStatement
+            pst.setString(1, txtUser.getText());
+            pst.setString(2, txtPass.getText());
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // Kombinasi email dan kata sandi cocok dalam database
+                JOptionPane.showMessageDialog(null, "Login Berhasil");
+                FormDashboardFrame.Form();
+            } else {
+                // Kombinasi email dan kata sandi tidak cocok
+                JOptionPane.showMessageDialog(null, "Email atau Password salah");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
