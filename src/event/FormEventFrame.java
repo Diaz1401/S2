@@ -2,28 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package dashboard;
+package event;
 
-import com.formdev.flatlaf.*;
-import javax.swing.*;
-import static main.Main.*;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import static main.Main.Detector;
+import static main.Main.ThemeListener;
 
 /**
  *
  * @author Diaz Nuraji
  */
-public class FormDashboardFrame extends javax.swing.JFrame {
+public class FormEventFrame extends javax.swing.JFrame {
 
-    private static FormDashboardPanel formPanel;
-    private static FormDashboardFrame formFrame;
+    private static FormEventPanel formPanel;
+    private static FormEventFrame formFrame;
 
     /**
-     * Creates new form FormDashboardFrame
+     * Creates new form FormEventFrame
      */
-    public FormDashboardFrame() {
+    public FormEventFrame() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        formPanel = new FormDashboardPanel();
+        formPanel = new FormEventPanel();
         setContentPane(formPanel);
     }
 
@@ -55,7 +58,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void Form() {
+    public static void Form () {
         ThemeListener = isDark -> {
             SwingUtilities.invokeLater(() -> {
                 if (!isDark) {
@@ -66,7 +69,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
                 if (formFrame != null) {
                     SwingUtilities.updateComponentTreeUI(formFrame);
                 } else {
-                    formFrame = new FormDashboardFrame();
+                    formFrame = new FormEventFrame();
                     formFrame.setVisible(true);
                 }
             });
@@ -74,6 +77,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         ThemeListener.accept(Detector.isDark());
         Detector.registerListener(ThemeListener);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,12 @@
  */
 package dashboard;
 
+import com.formdev.flatlaf.*;
+import event.FormEventFrame;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import static main.Main.*;
+
 /**
  *
  * @author Diaz Nuraji
@@ -15,6 +21,9 @@ public class FormDashboardPanel extends javax.swing.JPanel {
      */
     public FormDashboardPanel() {
         initComponents();
+        pnDashboard.putClientProperty(FlatClientProperties.STYLE, ""
+                + "arc:12;" // Sudut
+                + "background:$Login.background");
     }
 
     /**
@@ -26,6 +35,7 @@ public class FormDashboardPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnDashboard = new javax.swing.JPanel();
         btnBarang = new javax.swing.JButton();
         btnEvent = new javax.swing.JButton();
         btnPegawai = new javax.swing.JButton();
@@ -44,36 +54,54 @@ public class FormDashboardPanel extends javax.swing.JPanel {
 
         btnTransaksi.setText("Transaksi");
 
+        javax.swing.GroupLayout pnDashboardLayout = new javax.swing.GroupLayout(pnDashboard);
+        pnDashboard.setLayout(pnDashboardLayout);
+        pnDashboardLayout.setHorizontalGroup(
+            pnDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDashboardLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(btnBarang)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEvent)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnPegawai)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTransaksi)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        pnDashboardLayout.setVerticalGroup(
+            pnDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnDashboardLayout.createSequentialGroup()
+                .addContainerGap(190, Short.MAX_VALUE)
+                .addGroup(pnDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBarang)
+                    .addComponent(btnEvent)
+                    .addComponent(btnPegawai)
+                    .addComponent(btnTransaksi))
+                .addGap(20, 20, 20))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(109, Short.MAX_VALUE)
-                .addComponent(btnBarang)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEvent)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPegawai)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnTransaksi)
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addComponent(pnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(271, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBarang)
-                    .addComponent(btnEvent)
-                    .addComponent(btnPegawai)
-                    .addComponent(btnTransaksi))
-                .addGap(21, 21, 21))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
+                .addComponent(pnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEventActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEventActionPerformed
-        // TODO add your handling code here:
+        FormEventFrame.Form();
+        ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
     }//GEN-LAST:event_btnEventActionPerformed
 
 
@@ -82,5 +110,6 @@ public class FormDashboardPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEvent;
     private javax.swing.JButton btnPegawai;
     private javax.swing.JButton btnTransaksi;
+    private javax.swing.JPanel pnDashboard;
     // End of variables declaration//GEN-END:variables
 }

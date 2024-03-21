@@ -7,7 +7,9 @@ package login;
 import com.formdev.flatlaf.FlatClientProperties;
 import dashboard.FormDashboardFrame;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import koneksi.Koneksi;
 
 /**
@@ -16,10 +18,10 @@ import koneksi.Koneksi;
  */
 public class FormLoginPanel extends javax.swing.JPanel {
 
-    public static Connection cn;
-    public static ResultSet rs;
-    public static Statement st;
-    public static PreparedStatement pst;
+    private static Connection cn;
+    private static ResultSet rs;
+    private static Statement st;
+    private static PreparedStatement pst;
 
     /**
      * Creates new form FormLogin
@@ -137,6 +139,9 @@ public class FormLoginPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        FormDashboardFrame.Form();
+        ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+        /*
         try {
             // Buat kueri SQL dengan tanda tanya sebagai placeholder
             String query = "SELECT * FROM pegawai WHERE id_pegawai = ? AND password = ?";
@@ -148,16 +153,37 @@ public class FormLoginPanel extends javax.swing.JPanel {
             rs = pst.executeQuery();
 
             if (rs.next()) {
-                // Kombinasi email dan kata sandi cocok dalam database
+                // Kombinasi username dan password cocok dalam database
                 JOptionPane.showMessageDialog(null, "Login Berhasil");
                 FormDashboardFrame.Form();
+                // Tutup frame ini
+                ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
             } else {
                 // Kombinasi email dan kata sandi tidak cocok
-                JOptionPane.showMessageDialog(null, "Email atau Password salah");
+                JOptionPane.showMessageDialog(null, "Username atau Password salah");
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Gagal: " + e.getMessage());
+        } finally {
+            // Tutup semua sumber daya secara eksplisit
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (cn != null) {
+                    cn.close();
+                }
+                if (st != null) {
+                    cn.close();
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Gagal menutup sumber daya: " + e.getMessage());
+            }
         }
+        */
     }//GEN-LAST:event_btnLoginActionPerformed
 
 
