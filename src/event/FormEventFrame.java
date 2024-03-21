@@ -4,12 +4,10 @@
  */
 package event;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatLightLaf;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-import static main.Main.Detector;
-import static main.Main.ThemeListener;
+import com.formdev.flatlaf.*;
+import java.awt.Dimension;
+import javax.swing.*;
+import static main.Main.*;
 
 /**
  *
@@ -40,6 +38,7 @@ public class FormEventFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new Dimension(SetSize(0.9)[0], SetSize(0.9)[1]));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,7 +57,7 @@ public class FormEventFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void Form () {
+    public static void Form() {
         ThemeListener = isDark -> {
             SwingUtilities.invokeLater(() -> {
                 if (!isDark) {

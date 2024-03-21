@@ -6,9 +6,13 @@ package event;
 
 import com.formdev.flatlaf.FlatClientProperties;
 import java.sql.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import koneksi.Koneksi;
@@ -302,7 +306,7 @@ public class FormEventPanel extends javax.swing.JPanel {
             return;
         }
         // get value from first row
-        String id_paket = Table.getValueAt(row, 0).toString();
+        String id_event = txtIDEvent.getText();
 
         try {
             String sql_del = "DELETE from event WHERE id_event = ?";
@@ -310,7 +314,7 @@ public class FormEventPanel extends javax.swing.JPanel {
             pst = cn.prepareStatement(sql_del);
 
             // Set parameter
-            pst.setString(1, id_paket);
+            pst.setString(1, id_event);
 
             // Execute
             pst.executeUpdate();
@@ -327,7 +331,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         String nama = txtNama.getText();
         String biaya = txtBiaya.getText();
         String deskripsi = txtDeskripsi.getText();
-        
+
         // Tanggal
         Calendar SelectTanggal = txtTanggal.getCalendar();
         SimpleDateFormat FormatTanggal = new SimpleDateFormat("yyyy-MM-dd");
@@ -353,6 +357,13 @@ public class FormEventPanel extends javax.swing.JPanel {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Gagal mengubah data: " + e.getMessage());
         }
+
+        // Clear text
+        txtIDEvent.setText(null);
+        txtNama.setText(null);
+        txtDeskripsi.setText(null);
+        txtBiaya.setText(null);
+
         // Update table
         UpdateTable();
     }//GEN-LAST:event_btnUbahActionPerformed
@@ -363,7 +374,8 @@ public class FormEventPanel extends javax.swing.JPanel {
         String deskripsi = null;
         String nama = null;
         String biaya = null;
-        String tanggal = null;
+        SimpleDateFormat sdf;
+        Date date = null;
         try {
             cn = Koneksi.koneksiDB();
             pst = cn.prepareStatement("SELECT * FROM event WHERE id_event = ?");
@@ -372,15 +384,21 @@ public class FormEventPanel extends javax.swing.JPanel {
             rs.next(); // Move cursor to first row
             nama = rs.getString("nama");
             deskripsi = rs.getString("deskripsi");
-            tanggal = rs.getString("tanggal");
             biaya = rs.getString("biaya");
+
+            // Format String to Date
+            sdf = new SimpleDateFormat("yyyy-MM-dd");
+            date = sdf.parse(rs.getString("tanggal"));
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat tanggal: " + ex.getMessage());
         }
-        txtDeskripsi.setText(nama);
+        txtIDEvent.setText(id_event);
+        txtNama.setText(nama);
         txtDeskripsi.setText(deskripsi);
-        txtDeskripsi.setText(tanggal);
-        txtDeskripsi.setText(biaya);
+        txtTanggal.setDate(date);
+        txtBiaya.setText(biaya);
     }//GEN-LAST:event_TableMouseClicked
 
 

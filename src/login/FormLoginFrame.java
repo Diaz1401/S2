@@ -5,9 +5,9 @@
 package login;
 
 import com.formdev.flatlaf.*;
+import java.awt.Dimension;
 import javax.swing.*;
-import static main.Main.ThemeListener;
-import static main.Main.Detector;
+import static main.Main.*;
 
 /**
  *
@@ -39,16 +39,17 @@ public class FormLoginFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setPreferredSize(new Dimension(SetSize(0.6)[0], SetSize(0.9)[1]));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 298, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 245, Short.MAX_VALUE)
+            .addGap(0, 277, Short.MAX_VALUE)
         );
 
         pack();

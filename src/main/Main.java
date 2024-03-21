@@ -18,7 +18,15 @@ public class Main {
 
     public static OsThemeDetector Detector = OsThemeDetector.getDetector();
     public static Consumer<Boolean> ThemeListener;
-    public static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+    public static int SetSize (double scale) 
+        [] {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int screenWidth = (int) (screenSize.getWidth() * scale);
+        int screenHeight = (int) (screenSize.getHeight() * scale);
+        int[] size = {screenWidth, screenHeight};
+        return size;
+    }
 
     /**
      * @param args the command line arguments
