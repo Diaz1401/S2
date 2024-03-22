@@ -72,6 +72,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Barang"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBarangActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEvent">
           <Properties>
@@ -85,6 +88,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Pegawai"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPegawaiActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnTransaksi">
           <Properties>

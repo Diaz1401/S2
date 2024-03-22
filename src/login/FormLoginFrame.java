@@ -15,7 +15,6 @@ import static main.Main.*;
  */
 public class FormLoginFrame extends javax.swing.JFrame {
 
-    private static FormLoginPanel formPanel;
     private static FormLoginFrame formFrame;
 
     /**
@@ -24,8 +23,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
     public FormLoginFrame() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        formPanel = new FormLoginPanel();
-        setContentPane(formPanel);
+        setContentPane(new FormLoginPanel());
     }
 
     /**

@@ -22,6 +22,7 @@ public class FormLoginPanel extends javax.swing.JPanel {
     private static ResultSet rs;
     private static Statement st;
     private static PreparedStatement pst;
+    public static boolean isAdmin = true;
 
     /**
      * Creates new form FormLogin

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package dashboard;
+package barang;
 
 import com.formdev.flatlaf.*;
 import javax.swing.*;
@@ -12,17 +12,17 @@ import static main.Main.*;
  *
  * @author Diaz Nuraji
  */
-public class FormDashboardFrame extends javax.swing.JFrame {
+public class FormBarangFrame extends javax.swing.JFrame {
 
-    private static FormDashboardFrame formFrame;
+    private static FormBarangFrame formFrame;
 
     /**
-     * Creates new form FormDashboardFrame
+     * Creates new form FormEventFrame
      */
-    public FormDashboardFrame() {
+    public FormBarangFrame() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        setContentPane(new FormDashboardPanel());
+        setContentPane(new FormBarangPanel());
     }
 
     /**
@@ -64,7 +64,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
                 if (formFrame != null) {
                     SwingUtilities.updateComponentTreeUI(formFrame);
                 } else {
-                    formFrame = new FormDashboardFrame();
+                    formFrame = new FormBarangFrame();
                     formFrame.setVisible(true);
                 }
             });
@@ -72,6 +72,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         ThemeListener.accept(Detector.isDark());
         Detector.registerListener(ThemeListener);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }

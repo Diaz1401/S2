@@ -4,11 +4,13 @@
  */
 package dashboard;
 
+import barang.FormBarangFrame;
 import com.formdev.flatlaf.*;
 import event.FormEventFrame;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import static main.Main.*;
+import static login.FormLoginPanel.isAdmin;
+import pegawai.FormPegawaiFrame;
 
 /**
  *
@@ -24,6 +26,11 @@ public class FormDashboardPanel extends javax.swing.JPanel {
         pnDashboard.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:12;" // Sudut
                 + "background:$Login.background");
+        if (isAdmin) {
+            btnPegawai.setEnabled(true);
+        } else {
+            btnPegawai.setEnabled(false);
+        }
     }
 
     /**
@@ -42,6 +49,11 @@ public class FormDashboardPanel extends javax.swing.JPanel {
         btnTransaksi = new javax.swing.JButton();
 
         btnBarang.setText("Barang");
+        btnBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBarangActionPerformed(evt);
+            }
+        });
 
         btnEvent.setText("Event");
         btnEvent.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +63,11 @@ public class FormDashboardPanel extends javax.swing.JPanel {
         });
 
         btnPegawai.setText("Pegawai");
+        btnPegawai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPegawaiActionPerformed(evt);
+            }
+        });
 
         btnTransaksi.setText("Transaksi");
 
@@ -104,6 +121,15 @@ public class FormDashboardPanel extends javax.swing.JPanel {
         ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
     }//GEN-LAST:event_btnEventActionPerformed
 
+    private void btnPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPegawaiActionPerformed
+        FormPegawaiFrame.Form();
+        ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+    }//GEN-LAST:event_btnPegawaiActionPerformed
+
+    private void btnBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarangActionPerformed
+        FormBarangFrame.Form();
+        ((JFrame) SwingUtilities.getWindowAncestor(this)).dispose();
+    }//GEN-LAST:event_btnBarangActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBarang;

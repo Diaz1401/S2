@@ -15,7 +15,6 @@ import static main.Main.*;
  */
 public class FormEventFrame extends javax.swing.JFrame {
 
-    private static FormEventPanel formPanel;
     private static FormEventFrame formFrame;
 
     /**
@@ -24,8 +23,7 @@ public class FormEventFrame extends javax.swing.JFrame {
     public FormEventFrame() {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        formPanel = new FormEventPanel();
-        setContentPane(formPanel);
+        setContentPane(new FormEventPanel());
     }
 
     /**
