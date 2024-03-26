@@ -30,7 +30,7 @@ public class Main {
     public static void main(String[] args) {
         // Setup FlatLaf
         setupFlatLaf(true);
-        new FormLogin.FormLoginFrame().setVisible(true);
+        new Login.FormLoginFrame().setVisible(true);
     }
 
     private static void setupFlatLaf(boolean light) {

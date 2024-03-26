@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package FormLogin;
+package Login;
 
 import Koneksi.Koneksi;
 import com.formdev.flatlaf.FlatDarkLaf;
@@ -171,7 +171,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
             if (rs.next()) {
                 // Kombinasi username dan password cocok dalam database
                 JOptionPane.showMessageDialog(null, "Login Berhasil");
-                new FormDashboard.FormDashboardFrame().setVisible(true);
+                new Dashboard.FormDashboardFrame().setVisible(true);
                 dispose();
             } else {
                 // Kombinasi email dan kata sandi tidak cocok

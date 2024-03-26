@@ -38,7 +38,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
      */
     public FormKasirPanel() {
         initComponents();
-        txtIDPegawai.setText(FormLogin.FormLoginFrame.namaPegawai);
+        txtIDPegawai.setText(Login.FormLoginFrame.namaPegawai);
         txtTransaksi.setText(GenerateID());
     }
 
