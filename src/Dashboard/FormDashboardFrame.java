@@ -160,28 +160,44 @@ public class FormDashboardFrame extends javax.swing.JFrame {
     private void execute() {
         ImageIcon iconTransaksi = new ImageIcon(getClass().getResource("/Icon/TransaksiLight48.png"));
         ImageIcon iconEvent = new ImageIcon(getClass().getResource("/Icon/EventLight48.png"));
-        ImageIcon iconBarang = new ImageIcon(getClass().getResource("/Icon/BarangLight48.png"));
+        ImageIcon iconGudang = new ImageIcon(getClass().getResource("/Icon/GudangLight48.png"));
         ImageIcon iconPegawai = new ImageIcon(getClass().getResource("/Icon/PegawaiLight48.png"));
-        ImageIcon subiconkasir = new ImageIcon(getClass().getResource("/Icon/KasirLight48.png"));
-        FormMenuItem subMenuKasir = new FormMenuItem(null, subiconkasir, true, "Kasir", (ActionEvent e) -> {
+        ImageIcon subiconList = new ImageIcon(getClass().getResource("/Icon/ListLight48.png"));
+        ImageIcon subiconKasir = new ImageIcon(getClass().getResource("/Icon/KasirLight48.png"));
+        ImageIcon subiconBarang = new ImageIcon(getClass().getResource("/Icon/BarangLight48.png"));
+        ImageIcon subiconStok = new ImageIcon(getClass().getResource("/Icon/StokLight48.png"));
+        FormMenuItem subMenuKasir = new FormMenuItem(null, subiconKasir, true, "Kasir", (ActionEvent e) -> {
             pnUtama2.removeAll();
             pnUtama2.add(new Transaksi.FormKasirPanel());
             pnUtama2.repaint();
             pnUtama2.revalidate();
         });
-        FormMenuItem menuKasir = new FormMenuItem(iconTransaksi, null, false, "Transaksi", null, subMenuKasir);
+        FormMenuItem subMenuList = new FormMenuItem(null, subiconList, true, "List", (ActionEvent e) -> {
+            pnUtama2.removeAll();
+            pnUtama2.add(new Transaksi.FormListPanel());
+            pnUtama2.repaint();
+            pnUtama2.revalidate();
+        });
+        FormMenuItem menuKasir = new FormMenuItem(iconTransaksi, null, false, "Transaksi", null, subMenuKasir, subMenuList);
         FormMenuItem menuEvent = new FormMenuItem(iconEvent, null, false, "Event", (ActionEvent e) -> {
             pnUtama2.removeAll();
             pnUtama2.add(new Event.FormEventPanel());
             pnUtama2.repaint();
             pnUtama2.revalidate();
         });
-        FormMenuItem menuBarang = new FormMenuItem(iconBarang, null, false, "Barang", (ActionEvent e) -> {
+        FormMenuItem subMenuBarang = new FormMenuItem(null, subiconBarang, true, "Barang", (ActionEvent e) -> {
             pnUtama2.removeAll();
             pnUtama2.add(new Barang.FormBarangPanel());
             pnUtama2.repaint();
             pnUtama2.revalidate();
         });
+        FormMenuItem subMenuStok = new FormMenuItem(null, subiconStok, true, "Stok", (ActionEvent e) -> {
+            pnUtama2.removeAll();
+            pnUtama2.add(new Barang.FormStokPanel());
+            pnUtama2.repaint();
+            pnUtama2.revalidate();
+        });
+        FormMenuItem menuBarang = new FormMenuItem(iconGudang, null, false, "Gudang", null, subMenuBarang, subMenuStok);
         FormMenuItem menuPegawai = new FormMenuItem(iconPegawai, null, false, "Akun", (ActionEvent e) -> {
             pnUtama2.removeAll();
             pnUtama2.add(new Pegawai.FormPegawaiPanel());
