@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -26,19 +27,19 @@ public class FormMenuItem extends javax.swing.JPanel {
     /**
      * Creates new form MenuItem
      */
-    public FormMenuItem(Icon icon, Icon iconSub, boolean sbm, String menuName, ActionListener act, FormMenuItem... subMenu) {
+    public FormMenuItem(Icon icon, Icon iconSub, boolean SubMenu, String menuName, ActionListener act, FormMenuItem... subMenu) {
         initComponents();
-        pnMainMenu.putClientProperty(FlatClientProperties.STYLE, ""
-                + "arc:12;" // Sudut
-                + "background:$Login.background");
+        if (!SubMenu)
+            pnMainMenu.putClientProperty(FlatClientProperties.STYLE, "arc:12;background:$Login.background");
         lbIcon.setIcon(icon);
         lbMenu.setText(menuName);
         lbIconSub.setIcon(iconSub);
-        lbIconSub.setVisible(sbm);
+        lbIconSub.setVisible(SubMenu);
 
         if (act != null) {
             this.act = act;
         }
+
         this.setSize(new Dimension(Integer.MAX_VALUE, 55));
         this.setMaximumSize(new Dimension(Integer.MAX_VALUE, 55));
         this.setMinimumSize(new Dimension(Integer.MAX_VALUE, 55));
@@ -81,8 +82,8 @@ public class FormMenuItem extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lbIconSub, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
+                .addComponent(lbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126))
         );
         pnMainMenuLayout.setVerticalGroup(
             pnMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +99,9 @@ public class FormMenuItem extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

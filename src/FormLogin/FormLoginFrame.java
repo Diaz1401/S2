@@ -29,6 +29,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
     private static PreparedStatement pst;
     private int x, y;
     public static boolean isAdmin = true;
+    public static String namaPegawai = null;
 
     /**
      * Creates new form FormLoginFrame
@@ -93,10 +94,10 @@ public class FormLoginFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 556, Short.MAX_VALUE)
                 .addComponent(btnClose))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,24 +111,22 @@ public class FormLoginFrame extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogin)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(btnClose)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLogin)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(77, 77, 77))))
+                .addGap(72, 72, 72)
+                .addComponent(jLabel1)
+                .addGap(120, 120, 120))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,7 +140,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(607, 450));
+        setSize(new java.awt.Dimension(607, 496));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -159,46 +158,49 @@ public class FormLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-//        try {
-//            // Buat kueri SQL dengan tanda tanya sebagai placeholder
-//            String query = "SELECT * FROM pegawai WHERE id_pegawai = ? AND password = ?";
-//            pst = Koneksi.koneksiDB().prepareStatement(query);
-//
-//            // Setel nilai parameter menggunakan setter PreparedStatement
-//            pst.setString(1, txtUsername.getText());
-//            pst.setString(2, txtPassword.getText());
-//            rs = pst.executeQuery();
-//
-//            if (rs.next()) {
-//                // Kombinasi username dan password cocok dalam database
-//                JOptionPane.showMessageDialog(null, "Login Berhasil");
-//                new FormDashboard.FormDashboardFrame().setVisible(true);
-//            } else {
-//                // Kombinasi email dan kata sandi tidak cocok
-//                JOptionPane.showMessageDialog(null, "Username atau Password salah");
-//            }
-//        } catch (SQLException e) {
-//            JOptionPane.showMessageDialog(null, "Gagal: " + e.getMessage());
-//        } finally {
-//            // Tutup semua sumber daya secara eksplisit
-//            try {
-//                if (rs != null) {
-//                    rs.close();
-//                }
-//                if (pst != null) {
-//                    pst.close();
-//                }
-//                if (cn != null) {
-//                    cn.close();
-//                }
-//                if (st != null) {
-//                    cn.close();
-//                }
-//            } catch (SQLException e) {
-//                JOptionPane.showMessageDialog(null, "Gagal menutup sumber daya: " + e.getMessage());
-//            }
-//        }
-        new FormDashboard.FormDashboardFrame().setVisible(true);
+        try {
+            // Buat kueri SQL dengan tanda tanya sebagai placeholder
+            String query = "SELECT * FROM pegawai WHERE id_pegawai = ? AND password = ?";
+            pst = Koneksi.koneksiDB().prepareStatement(query);
+
+            // Setel nilai parameter menggunakan setter PreparedStatement
+            pst.setString(1, txtUsername.getText());
+            pst.setString(2, txtPassword.getText());
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                // Kombinasi username dan password cocok dalam database
+                JOptionPane.showMessageDialog(null, "Login Berhasil");
+                new FormDashboard.FormDashboardFrame().setVisible(true);
+                dispose();
+            } else {
+                // Kombinasi email dan kata sandi tidak cocok
+                JOptionPane.showMessageDialog(null, "Username atau Password salah");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal: " + e.getMessage());
+        } finally {
+            // Tutup semua sumber daya secara eksplisit
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (cn != null) {
+                    cn.close();
+                }
+                if (st != null) {
+                    cn.close();
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Gagal menutup sumber daya: " + e.getMessage());
+            }
+        }
+        namaPegawai = txtUsername.getText();
+//        new FormDashboard.FormDashboardFrame().setVisible(true);
+//        dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

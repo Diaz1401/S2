@@ -158,14 +158,18 @@ public class FormDashboardFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void execute() {
-        ImageIcon iconMaster = new ImageIcon(getClass().getResource("/Icon/CloseLight48.png"));
+        ImageIcon iconTransaksi = new ImageIcon(getClass().getResource("/Icon/TransaksiLight48.png"));
         ImageIcon iconEvent = new ImageIcon(getClass().getResource("/Icon/EventLight48.png"));
         ImageIcon iconBarang = new ImageIcon(getClass().getResource("/Icon/BarangLight48.png"));
         ImageIcon iconPegawai = new ImageIcon(getClass().getResource("/Icon/PegawaiLight48.png"));
-        FormMenuItem barang1 = new FormMenuItem(null, iconMaster, true, "Barang1", null);
-        FormMenuItem barang2 = new FormMenuItem(null, iconMaster, true, "Barang2", null);
-        FormMenuItem barang3 = new FormMenuItem(null, iconMaster, true, "Barang3", null);
-        FormMenuItem menuMaster = new FormMenuItem(iconMaster, null, false, "Master", null, barang1, barang2, barang3);
+        ImageIcon subiconkasir = new ImageIcon(getClass().getResource("/Icon/KasirLight48.png"));
+        FormMenuItem subMenuKasir = new FormMenuItem(null, subiconkasir, true, "Kasir", (ActionEvent e) -> {
+            pnUtama2.removeAll();
+            pnUtama2.add(new Transaksi.FormKasirPanel());
+            pnUtama2.repaint();
+            pnUtama2.revalidate();
+        });
+        FormMenuItem menuKasir = new FormMenuItem(iconTransaksi, null, false, "Transaksi", null, subMenuKasir);
         FormMenuItem menuEvent = new FormMenuItem(iconEvent, null, false, "Event", (ActionEvent e) -> {
             pnUtama2.removeAll();
             pnUtama2.add(new Event.FormEventPanel());
@@ -184,7 +188,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             pnUtama2.repaint();
             pnUtama2.revalidate();
         });
-        addMenu(menuMaster, menuBarang, menuPegawai, menuEvent);
+        addMenu(menuKasir, menuBarang, menuPegawai, menuEvent);
     }
 
     private void addMenu(FormMenuItem... menu) {
