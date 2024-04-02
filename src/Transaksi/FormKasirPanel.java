@@ -334,7 +334,8 @@ public class FormKasirPanel extends javax.swing.JPanel {
                     rs = pst.executeQuery();
                     if (rs.next()) {
                         int harga = rs.getInt("harga");
-                        totalPrice += harga;
+                        // Ambil keuntungan 2000
+                        totalPrice += harga + 2000;
                     }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());

@@ -73,7 +73,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnSideBar, java.awt.BorderLayout.LINE_START);
 
-        pnTopBar.setBackground(new java.awt.Color(255, 204, 0));
+        pnTopBar.setBackground(new java.awt.Color(249, 210, 88));
 
         javax.swing.GroupLayout pnTopBarLayout = new javax.swing.GroupLayout(pnTopBar);
         pnTopBar.setLayout(pnTopBarLayout);

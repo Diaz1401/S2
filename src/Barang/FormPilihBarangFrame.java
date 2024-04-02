@@ -25,6 +25,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
     private static ResultSet rs;
     private static Statement st;
     private static PreparedStatement pst;
+    private int harga = 0;
 
     /**
      * Creates new form FormPilihBarangFrame
@@ -38,16 +39,18 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         DefaultTableModel tbl = new DefaultTableModel();
         tbl.addColumn("ID Barang");
         tbl.addColumn("Nama");
+        tbl.addColumn("Harga");
         TableSearch.setModel(tbl);
         try {
             cn = Koneksi.koneksiDB();
             st = cn.createStatement();
-            rs = st.executeQuery("SELECT id_barang, nama FROM barang");
+            rs = st.executeQuery("SELECT id_barang, nama, harga FROM barang");
 
             while (rs.next()) {
                 tbl.addRow(new Object[]{
                     rs.getString("id_barang"),
-                    rs.getString("nama")});
+                    rs.getString("nama"),
+                    rs.getString("harga")});
                 TableSearch.setModel(tbl);
             }
         } catch (SQLException e) {
@@ -67,14 +70,16 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableSearch = new javax.swing.JTable();
-        btnCari = new javax.swing.JTextField();
+        txtCari = new javax.swing.JTextField();
         txtTerpilih = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnPilih = new javax.swing.JButton();
+        txtJumlah = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Tabel Barang Tersedia");
 
         TableSearch.setModel(new javax.swing.table.DefaultTableModel(
@@ -92,26 +97,26 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableSearch);
 
-        btnCari.setText("Cari barang . . .");
-        btnCari.addFocusListener(new java.awt.event.FocusAdapter() {
+        txtCari.setText("Cari barang . . .");
+        txtCari.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                btnCariFocusGained(evt);
+                txtCariFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                btnCariFocusLost(evt);
+                txtCariFocusLost(evt);
             }
         });
-        btnCari.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtCari.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnCariMouseEntered(evt);
+                txtCariMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnCariMouseExited(evt);
+                txtCariMouseExited(evt);
             }
         });
-        btnCari.addActionListener(new java.awt.event.ActionListener() {
+        txtCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCariActionPerformed(evt);
+                txtCariActionPerformed(evt);
             }
         });
 
@@ -129,6 +134,21 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
             }
         });
 
+        txtJumlah.setText("Jumlah barang . . .");
+        txtJumlah.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtJumlahFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtJumlahFocusLost(evt);
+            }
+        });
+        txtJumlah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJumlahActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,19 +158,18 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCari)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtTerpilih, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                            .addComponent(txtTerpilih, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnPilih)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -158,15 +177,20 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTerpilih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTerpilih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -178,12 +202,12 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCariMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCariMouseEntered
+    private void txtCariMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCariMouseEntered
 
-    }//GEN-LAST:event_btnCariMouseEntered
+    }//GEN-LAST:event_txtCariMouseEntered
 
-    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-        String keyword = btnCari.getText().trim(); // Get the search keyword
+    private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
+        String keyword = txtCari.getText().trim(); // Get the search keyword
 
         if (keyword.isEmpty() || keyword.equals("Cari barang . . .")) {
             JOptionPane.showMessageDialog(this, "Masukan nama atau ID barang.");
@@ -193,11 +217,12 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         DefaultTableModel tbl = new DefaultTableModel();
         tbl.addColumn("ID Barang");
         tbl.addColumn("Nama");
+        tbl.addColumn("Harga");
         TableSearch.setModel(tbl);
 
         try {
             cn = Koneksi.koneksiDB();
-            String query = "SELECT id_barang, nama FROM barang WHERE id_barang LIKE ? OR nama LIKE ?";
+            String query = "SELECT id_barang, nama, barang FROM barang WHERE id_barang LIKE ? OR nama LIKE ?";
             pst = cn.prepareStatement(query);
             pst.setString(1, "%" + keyword + "%");
             pst.setString(2, "%" + keyword + "%");
@@ -206,38 +231,61 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
             while (rs.next()) {
                 tbl.addRow(new Object[]{
                     rs.getString("id_barang"),
-                    rs.getString("nama")
+                    rs.getString("nama"),
+                    rs.getString("barang")
                 });
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
         }
-    }//GEN-LAST:event_btnCariActionPerformed
+    }//GEN-LAST:event_txtCariActionPerformed
 
-    private void btnCariMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCariMouseExited
+    private void txtCariMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtCariMouseExited
 
-    }//GEN-LAST:event_btnCariMouseExited
+    }//GEN-LAST:event_txtCariMouseExited
 
-    private void btnCariFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnCariFocusGained
-        if (btnCari.getText().equals("Cari barang . . ."))
-            btnCari.setText("");
-    }//GEN-LAST:event_btnCariFocusGained
+    private void txtCariFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCariFocusGained
+        if (txtCari.getText().equals("Cari barang . . ."))
+            txtCari.setText("");
+    }//GEN-LAST:event_txtCariFocusGained
 
-    private void btnCariFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnCariFocusLost
-        if (btnCari.getText().isEmpty())
-            btnCari.setText("Cari barang . . .");
-    }//GEN-LAST:event_btnCariFocusLost
+    private void txtCariFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCariFocusLost
+        if (txtCari.getText().isEmpty())
+            txtCari.setText("Cari barang . . .");
+    }//GEN-LAST:event_txtCariFocusLost
 
     private void TableSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableSearchMouseClicked
         int row = TableSearch.getSelectedRow();
         String barang = TableSearch.getValueAt(row, 0).toString();
         txtTerpilih.setText(barang);
+        harga = Integer.parseInt(TableSearch.getValueAt(row, 2).toString());
     }//GEN-LAST:event_TableSearchMouseClicked
 
     private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
+        if (txtJumlah.getText().isEmpty() || txtJumlah.getText().equals("Jumlah barang . . .")) {
+            JOptionPane.showMessageDialog(this, "Masukan jumlah barang terlebih dahulu !!!");
+            return;
+        }
+        String totalString = Integer.toString(Integer.parseInt(txtJumlah.getText()) * harga);
+        FormStokPanel.txtJumlah.setText(txtJumlah.getText());
         FormStokPanel.txtBarang.setText(txtTerpilih.getText());
+        FormStokPanel.txtTotal.setText(totalString);
         dispose();
     }//GEN-LAST:event_btnPilihActionPerformed
+
+    private void txtJumlahFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJumlahFocusGained
+        if (txtJumlah.getText().equals("Jumlah barang . . ."))
+            txtJumlah.setText("");
+    }//GEN-LAST:event_txtJumlahFocusGained
+
+    private void txtJumlahFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJumlahFocusLost
+        if (txtJumlah.getText().isEmpty())
+            txtJumlah.setText("Jumlah barang . . .");
+    }//GEN-LAST:event_txtJumlahFocusLost
+
+    private void txtJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJumlahActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,12 +325,13 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableSearch;
-    private javax.swing.JTextField btnCari;
     private javax.swing.JButton btnPilih;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtCari;
+    private javax.swing.JTextField txtJumlah;
     private javax.swing.JTextField txtTerpilih;
     // End of variables declaration//GEN-END:variables
 }

@@ -300,8 +300,9 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         FormKasirPanel.barang = new String[10];
         FormKasirPanel.btnHitung.setEnabled(true);
         int rowCount = TableSelect.getRowCount();
-        if (rowCount > 10)
+        if (rowCount > 10) {
             JOptionPane.showMessageDialog(this, "Error: Barang terpilih maksimal 10");
+        }
         for (int i = 0; i < rowCount; i++) {
             Object value = TableSelect.getValueAt(i, 0);
 
@@ -309,6 +310,21 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
             if (value != null) {
                 // Convert the value to a String and store it in the barang array
                 FormKasirPanel.barang[i] = value.toString();
+                try {
+                    // Connect
+                    String sql = "UPDATE barang SET stok = stok - 1 WHERE id_barang = ?";
+                    cn = Koneksi.koneksiDB();
+                    pst = cn.prepareStatement(sql);
+
+                    // Set paramater
+                    pst.setString(1, value.toString());
+
+                    // Execute the statement
+                    pst.executeUpdate();
+
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, "Gagal menyimpan data: " + e.getMessage());
+                }
             } else {
                 // If the value is null, set the corresponding element in the barang array to null
                 FormKasirPanel.barang[i] = null;
