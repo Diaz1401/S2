@@ -198,6 +198,7 @@ public class FormListPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Gagal menghapus data: " + e.getMessage());
         }
         UpdateTable();
+        txtKeterangan.setText("");
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
