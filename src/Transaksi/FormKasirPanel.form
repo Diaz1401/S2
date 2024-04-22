@@ -131,6 +131,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTransaksi">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -148,12 +151,16 @@
         <Component class="javax.swing.JButton" name="btnFinal">
           <Properties>
             <Property name="text" type="java.lang.String" value="Proses"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFinalActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDTransaksi">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnPilih">
           <Properties>
@@ -166,6 +173,7 @@
         <Component class="javax.swing.JButton" name="btnHitung">
           <Properties>
             <Property name="text" type="java.lang.String" value="Hitung"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHitungActionPerformed"/>

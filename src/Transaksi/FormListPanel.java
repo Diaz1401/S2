@@ -33,6 +33,11 @@ public class FormListPanel extends javax.swing.JPanel {
                 + "background:$Login.background");
         lbTitleTransaksi.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:+bold +20");
+        if (Login.FormLoginFrame.isAdmin.isSelected()) {
+            btnHapus.setEnabled(true);
+        } else {
+            btnHapus.setEnabled(false);
+        }
     }
 
     public void UpdateTable() {

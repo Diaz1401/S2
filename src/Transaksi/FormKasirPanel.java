@@ -84,6 +84,8 @@ public class FormKasirPanel extends javax.swing.JPanel {
 
         txtIDPegawai.setEnabled(false);
 
+        txtTransaksi.setEnabled(false);
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ID Pegawai");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -92,11 +94,14 @@ public class FormKasirPanel extends javax.swing.JPanel {
         jLabel2.setText("ID Transaksi & Detail Transaksi");
 
         btnFinal.setText("Proses");
+        btnFinal.setEnabled(false);
         btnFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFinalActionPerformed(evt);
             }
         });
+
+        txtDTransaksi.setEnabled(false);
 
         btnPilih.setText("Pilih Barang");
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
@@ -106,6 +111,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         });
 
         btnHitung.setText("Hitung");
+        btnHitung.setEnabled(false);
         btnHitung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHitungActionPerformed(evt);
@@ -209,24 +215,26 @@ public class FormKasirPanel extends javax.swing.JPanel {
         // Insert into tabel transaksi
         try {
             cn = Koneksi.koneksiDB();
-            String query = "INSERT INTO transaksi (id_transaksi, keterangan";
+            String query1 = "INSERT INTO transaksi (id_transaksi, keterangan";
+            String query2 = "INSERT INTO detail_transaksi (id_detail_transaksi, id_transaksi, id_pegawai, tanggal, total) VALUES (?, ?, ?, ?, ?)";
+
 
             // for id_barang_0 to id_barang_9
             for (int i = 0; i < 10; i++) {
-                query += ", id_barang_" + i;
+                query1 += ", id_barang_" + i;
             }
 
             // id_transaksi, id_pegawai, keterangan, tanggal
-            query += ") VALUES (?, ?";
+            query1 += ") VALUES (?, ?";
 
             // for id_barang_0 to id_barang_9
             for (int i = 0; i < 10; i++) {
-                query += ", ?";
+                query1 += ", ?";
             }
 
-            query += ")";
+            query1 += ")";
 
-            pst = cn.prepareStatement(query);
+            pst = cn.prepareStatement(query1);
             pst.setString(1, txtTransaksi.getText()); // id_transaksi
             pst.setString(2, txtKeterangan.getText()); // keterangan
 
@@ -240,16 +248,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
             }
 
             pst.executeUpdate();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Transaksi gagal, " + e.getMessage());
-        }
-
-        // Insert into tabel transaksi_detail
-        try {
-            cn = Koneksi.koneksiDB();
-            String query = "INSERT INTO detail_transaksi (id_detail_transaksi, id_transaksi, id_pegawai, tanggal, total) VALUES (?, ?, ?, ?, ?)";
-
-            pst = cn.prepareStatement(query);
+            pst = cn.prepareStatement(query2);
             pst.setString(1, txtDTransaksi.getText()); // id_detail_transaksi
             pst.setString(2, txtTransaksi.getText()); // id_transaksi
             pst.setString(3, txtIDPegawai.getText()); // id_pegawai
@@ -257,10 +256,14 @@ public class FormKasirPanel extends javax.swing.JPanel {
             pst.setString(5, lbTotal.getText()); // total
 
             pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Transaksi berhasil !!!");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, "Transaksi gagal, " + e.getMessage());
         }
+
         btnFinal.setEnabled(false);
+        btnPilih.setEnabled(true);
+        btnHitung.setEnabled(false);
     }//GEN-LAST:event_btnFinalActionPerformed
 
     private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed

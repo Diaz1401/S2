@@ -28,7 +28,6 @@ public class FormLoginFrame extends javax.swing.JFrame {
     private static Statement st;
     private static PreparedStatement pst;
     private int x, y;
-    public static boolean isAdmin = true;
     public static String namaPegawai = null;
 
     /**
@@ -55,6 +54,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
+        isAdmin = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -89,6 +89,13 @@ public class FormLoginFrame extends javax.swing.JFrame {
             }
         });
 
+        isAdmin.setText("Admin");
+        isAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isAdminActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -97,13 +104,14 @@ public class FormLoginFrame extends javax.swing.JFrame {
                 .addGap(0, 556, Short.MAX_VALUE)
                 .addComponent(btnClose))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(86, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(isAdmin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(79, 79, 79))
@@ -121,8 +129,11 @@ public class FormLoginFrame extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
+                .addGap(18, 18, 18)
+                .addComponent(isAdmin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnClose)
                 .addGap(72, 72, 72)
                 .addComponent(jLabel1)
@@ -203,6 +214,16 @@ public class FormLoginFrame extends javax.swing.JFrame {
 //        dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void isAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isAdminActionPerformed
+        if (isAdmin.isSelected()) {
+            txtUsername.setEnabled(false);
+            txtUsername.setText("admin");
+        } else {
+            txtUsername.setEnabled(true);
+            txtUsername.setText("");
+        }
+    }//GEN-LAST:event_isAdminActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -241,6 +262,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnClose;
     private javax.swing.JButton btnLogin;
+    public static javax.swing.JCheckBox isAdmin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -37,6 +37,8 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         pnSideBar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         pnMenu = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
         pnTopBar = new javax.swing.JPanel();
         pnUtama1 = new javax.swing.JPanel();
         pnUtama2 = new javax.swing.JPanel();
@@ -55,20 +57,39 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         pnMenu.setLayout(new javax.swing.BoxLayout(pnMenu, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(pnMenu);
 
+        jToggleButton1.setText("Tema");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/LogoutLight48.png"))); // NOI18N
+
         javax.swing.GroupLayout pnSideBarLayout = new javax.swing.GroupLayout(pnSideBar);
         pnSideBar.setLayout(pnSideBarLayout);
         pnSideBarLayout.setHorizontalGroup(
             pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnSideBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                .addGroup(pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(pnSideBarLayout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnSideBarLayout.setVerticalGroup(
             pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnSideBarLayout.createSequentialGroup()
+            .addGroup(pnSideBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getContentPane().add(pnSideBar, java.awt.BorderLayout.LINE_START);
@@ -113,6 +134,10 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         pnUtama2.revalidate();
     }//GEN-LAST:event_formWindowOpened
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        Main.Main.changeMode(!jToggleButton1.isSelected());
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -149,8 +174,10 @@ public class FormDashboardFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JPanel pnMenu;
+    private javax.swing.JToggleButton jToggleButton1;
+    public static javax.swing.JPanel pnMenu;
     private javax.swing.JPanel pnSideBar;
     private javax.swing.JPanel pnTopBar;
     private javax.swing.JPanel pnUtama1;

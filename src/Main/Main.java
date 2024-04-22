@@ -1,6 +1,7 @@
 package Main;
 
 import com.formdev.flatlaf.*;
+import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -15,6 +16,8 @@ import javax.swing.UIManager;
  * @author Diaz Nuraji
  */
 public class Main {
+
+    public static boolean theme = true;
 
     public static int[] SetSize(double scale) {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -48,5 +51,18 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void changeMode(boolean light) {
+        EventQueue.invokeLater(() -> {
+            FlatAnimatedLafChange.showSnapshot();
+            if (light) {
+                FlatLightLaf.setup();
+            } else {
+                FlatDarkLaf.setup();
+            }
+            FlatLaf.updateUI();
+            FlatAnimatedLafChange.hideSnapshotWithAnimation();
+        });
     }
 }

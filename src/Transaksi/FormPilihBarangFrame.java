@@ -323,7 +323,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
                     pst.executeUpdate();
 
                 } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(null, "Gagal menyimpan data: " + e.getMessage());
+                    JOptionPane.showMessageDialog(this, "Gagal menyimpan data: " + e.getMessage());
                 }
             } else {
                 // If the value is null, set the corresponding element in the barang array to null
@@ -331,6 +331,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
             }
         }
         dispose();
+        FormKasirPanel.btnHitung.setEnabled(true);
     }//GEN-LAST:event_btnPilihActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed

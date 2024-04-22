@@ -79,11 +79,11 @@ public class FormMenuItem extends javax.swing.JPanel {
             .addGroup(pnMainMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbIconSub, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126))
+                .addComponent(lbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
         );
         pnMainMenuLayout.setVerticalGroup(
             pnMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
