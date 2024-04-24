@@ -23,14 +23,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="pnKasir" min="-2" max="-2" attributes="0"/>
+              <Component id="pnKasir" min="-2" pref="982" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="pnKasir" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -40,12 +40,17 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="pnKasir">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[960, 600]"/>
+        </Property>
+      </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="169" max="32767" attributes="0"/>
+                  <EmptySpace pref="180" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="btnHitung" min="-2" max="-2" attributes="0"/>
@@ -73,7 +78,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="170" max="32767" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -113,7 +118,7 @@
                       <Component id="btnHitung" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnFinal" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="201" max="32767" attributes="0"/>
+                  <EmptySpace pref="312" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

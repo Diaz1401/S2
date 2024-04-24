@@ -79,6 +79,8 @@ public class FormKasirPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(453, 453));
 
+        pnKasir.setPreferredSize(new java.awt.Dimension(960, 600));
+
         lbTitleKasir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleKasir.setText("Kasir");
 
@@ -131,7 +133,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         pnKasirLayout.setHorizontalGroup(
             pnKasirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnKasirLayout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
+                .addContainerGap(180, Short.MAX_VALUE)
                 .addGroup(pnKasirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnKasirLayout.createSequentialGroup()
                         .addComponent(btnHitung)
@@ -153,7 +155,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
         pnKasirLayout.setVerticalGroup(
             pnKasirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +188,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
                 .addGroup(pnKasirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnHitung)
                     .addComponent(btnFinal))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -195,12 +197,12 @@ public class FormKasirPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnKasir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnKasir, javax.swing.GroupLayout.PREFERRED_SIZE, 982, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnKasir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

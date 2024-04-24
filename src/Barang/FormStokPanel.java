@@ -10,8 +10,12 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Koneksi.Koneksi;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -95,12 +99,13 @@ public class FormStokPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnUbah = new javax.swing.JButton();
         txtTanggal = new com.toedter.calendar.JDateChooser();
         txtBarang = new javax.swing.JTextField();
         btnPilih = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
+
+        pnStok.setPreferredSize(new java.awt.Dimension(960, 600));
 
         lbTitleStok.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleStok.setText("Tambah Stok Barang");
@@ -151,13 +156,6 @@ public class FormStokPanel extends javax.swing.JPanel {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Tanggal");
 
-        btnUbah.setText("Ubah");
-        btnUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbahActionPerformed(evt);
-            }
-        });
-
         txtBarang.setEnabled(false);
 
         btnPilih.setText("Pilih Barang");
@@ -181,7 +179,7 @@ public class FormStokPanel extends javax.swing.JPanel {
                 .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtBarang)
-                    .addComponent(btnPilih, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPilih, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtTotal)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnStokLayout.createSequentialGroup()
@@ -193,16 +191,15 @@ public class FormStokPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbTitleStok, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnTambah, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(lbTitleStok, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnTambah, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
         pnStokLayout.setVerticalGroup(
             pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,39 +209,38 @@ public class FormStokPanel extends javax.swing.JPanel {
                         .addGap(60, 60, 60)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnStokLayout.createSequentialGroup()
-                                .addComponent(btnTambah)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnHapus)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnUbah))
-                            .addGroup(pnStokLayout.createSequentialGroup()
-                                .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21)
-                                .addComponent(btnPilih))))
+                        .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(btnPilih))
                     .addGroup(pnStokLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbTitleStok, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnStokLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnStokLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(btnTambah)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnHapus)))))
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -328,15 +324,15 @@ public class FormStokPanel extends javax.swing.JPanel {
             return;
         }
         // get value from first row
-        String id_barang = txtStok.getText();
+        String id_stok = txtStok.getText();
 
         try {
-            String sql_del = "DELETE from barang WHERE id_barang = ?";
+            String sql_del = "DELETE from barang_masuk WHERE id_stok = ?";
             cn = Koneksi.koneksiDB();
             pst = cn.prepareStatement(sql_del);
 
             // Set parameter
-            pst.setString(1, id_barang);
+            pst.setString(1, id_stok);
 
             // Execute
             pst.executeUpdate();
@@ -348,49 +344,38 @@ public class FormStokPanel extends javax.swing.JPanel {
         UpdateTable();
     }//GEN-LAST:event_btnHapusActionPerformed
 
-    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        String id_stok = txtStok.getText();
-        String id_barang = txtBarang.getText();
-        String jumlah = txtJumlah.getText();
-        String total = txtTotal.getText();
-
-        // Tanggal
-        Calendar SelectTanggal = txtTanggal.getCalendar();
-        SimpleDateFormat FormatTanggal = new SimpleDateFormat("yyyy-MM-dd");
-        String tanggal = FormatTanggal.format(SelectTanggal.getTime());
-
-        try {
-            // Connect
-            String sql = "UPDATE barang SET id_barang = ?, jumlah = ?, total = ?, tanggal = ? WHERE id_stok = ?";
-            cn = Koneksi.koneksiDB();
-            pst = cn.prepareStatement(sql);
-
-            // Set the parameter values
-            pst.setString(1, id_barang);
-            pst.setString(2, jumlah);
-            pst.setString(3, total);
-            pst.setString(4, tanggal);
-            pst.setString(5, id_stok);
-
-            // Execute the statement
-            pst.executeUpdate();
-
-            JOptionPane.showMessageDialog(null, "Data berhasil diubah");
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Gagal mengubah data: " + e.getMessage());
-        }
-
-        // Clear text
-        txtStok.setText(null);
-        txtBarang.setText(null);
-        txtJumlah.setText(null);
-        txtStok.setText(null);
-
-        // Update table
-        UpdateTable();
-    }//GEN-LAST:event_btnUbahActionPerformed
-
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
+        int row = Table.getSelectedRow();
+        String id_stok = Table.getValueAt(row, 0).toString();
+        String id_barang = null;
+        String jumlah = null;
+        String total = null;
+        SimpleDateFormat sdf;
+        Date date = null;
+        try {
+            cn = Koneksi.koneksiDB();
+            pst = cn.prepareStatement("SELECT * FROM barang_masuk WHERE id_stok = ?");
+            pst.setString(1, id_stok);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                id_barang = rs.getString("id_barang");
+                jumlah = rs.getString("jumlah");
+                total = rs.getString("total");
+
+                // Format String to Date
+                sdf = new SimpleDateFormat("yyyy-MM-dd");
+                date = sdf.parse(rs.getString("tanggal"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat tanggal: " + ex.getMessage());
+        }
+        txtStok.setText(id_stok);
+        txtBarang.setText(id_barang);
+        txtJumlah.setText(jumlah);
+        txtTotal.setText(total);
+        txtTanggal.setDate(date);
     }//GEN-LAST:event_TableMouseClicked
 
     private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
@@ -403,7 +388,6 @@ public class FormStokPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnPilih;
     private javax.swing.JButton btnTambah;
-    private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

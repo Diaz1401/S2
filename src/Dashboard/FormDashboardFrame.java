@@ -38,7 +38,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         pnMenu = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbBack = new javax.swing.JLabel();
         pnTopBar = new javax.swing.JPanel();
         pnUtama1 = new javax.swing.JPanel();
         pnUtama2 = new javax.swing.JPanel();
@@ -49,6 +49,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new java.awt.BorderLayout());
 
         pnSideBar.setPreferredSize(new java.awt.Dimension(250, 380));
 
@@ -64,7 +65,12 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/LogoutLight48.png"))); // NOI18N
+        lbBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/LogoutLight48.png"))); // NOI18N
+        lbBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbBackMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnSideBarLayout = new javax.swing.GroupLayout(pnSideBar);
         pnSideBar.setLayout(pnSideBarLayout);
@@ -75,7 +81,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
                 .addGroup(pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(pnSideBarLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbBack, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -87,7 +93,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -138,6 +144,11 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         Main.Main.changeMode(!jToggleButton1.isSelected());
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void lbBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbBackMouseClicked
+        new Login.FormLoginFrame().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_lbBackMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -174,9 +185,9 @@ public class FormDashboardFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbBack;
     public static javax.swing.JPanel pnMenu;
     private javax.swing.JPanel pnSideBar;
     private javax.swing.JPanel pnTopBar;

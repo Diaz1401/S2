@@ -83,7 +83,7 @@ public class FormListPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtKeterangan = new javax.swing.JTextArea();
 
-        pnTransaksi.setPreferredSize(new java.awt.Dimension(960, 450));
+        pnTransaksi.setPreferredSize(new java.awt.Dimension(960, 600));
 
         lbTitleTransaksi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitleTransaksi.setText("Data Transaksi");
@@ -144,7 +144,7 @@ public class FormListPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHapus)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(177, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

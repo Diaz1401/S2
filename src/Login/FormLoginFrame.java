@@ -129,7 +129,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnLogin)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(isAdmin)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -216,12 +216,14 @@ public class FormLoginFrame extends javax.swing.JFrame {
 
     private void isAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isAdminActionPerformed
         if (isAdmin.isSelected()) {
-            txtUsername.setEnabled(false);
             txtUsername.setText("admin");
+            txtUsername.setEnabled(false);
         } else {
-            txtUsername.setEnabled(true);
             txtUsername.setText("");
+            txtUsername.setEnabled(true);
         }
+        
+        
     }//GEN-LAST:event_isAdminActionPerformed
 
     /**
