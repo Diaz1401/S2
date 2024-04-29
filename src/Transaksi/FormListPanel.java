@@ -106,7 +106,7 @@ public class FormListPanel extends javax.swing.JPanel {
 
         pnTransaksi.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 860, 250));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\Group 4.png")); // NOI18N
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +123,7 @@ public class FormListPanel extends javax.swing.JPanel {
 
         pnTransaksi.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 860, 140));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\TRANSAKSI.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formlistpanel.png"))); // NOI18N
         pnTransaksi.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

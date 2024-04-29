@@ -97,9 +97,6 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPilih">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\Group 5.png"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -142,9 +139,6 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnTambah">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\tambah_akun.png"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -161,7 +155,7 @@
     <Component class="javax.swing.JButton" name="btnHapus">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\hapus_event.png"/>
+          <Image iconType="3" name="/iconform/hapus.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -179,7 +173,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\TBLPILHBRNG.png"/>
+          <Image iconType="3" name="/iconform/formpilihbarangframe2.png"/>
         </Property>
       </Properties>
       <Constraints>

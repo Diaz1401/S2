@@ -117,7 +117,7 @@
         <Component class="javax.swing.JButton" name="btnTambah">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\tambahstok.png"/>
+              <Image iconType="3" name="/iconform/tambah button.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -135,7 +135,7 @@
         <Component class="javax.swing.JButton" name="btnHapus">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\hapusstok.png"/>
+              <Image iconType="3" name="/iconform/hapus.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -191,9 +191,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnPilih">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\pilihstok.png"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -229,7 +226,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\st2.png"/>
+              <Image iconType="3" name="/iconform/formstokkpanel.png"/>
             </Property>
           </Properties>
           <Constraints>

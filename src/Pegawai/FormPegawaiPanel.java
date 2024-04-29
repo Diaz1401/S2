@@ -135,7 +135,6 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         txtNama.setBorder(null);
         pnEvent.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 169, -1));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\tambah_akun.png")); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +143,7 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 110, -1));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\hapus_akun.png")); // NOI18N
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +152,6 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, 110, -1));
 
-        btnUbah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\ubah_akun.png")); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +178,7 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         });
         pnEvent.add(txtGaji, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 190, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\AKUN (1).png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formpegawaipanel.png"))); // NOI18N
         pnEvent.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1000, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -162,7 +162,7 @@
         <Component class="javax.swing.JButton" name="btnTambah">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\tambah_event.png"/>
+              <Image iconType="3" name="/iconform/tambah button.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -180,7 +180,7 @@
         <Component class="javax.swing.JButton" name="btnHapus">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\hapus_event.png"/>
+              <Image iconType="3" name="/iconform/hapus.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -208,7 +208,7 @@
         <Component class="javax.swing.JButton" name="btnUbah">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\ubah_event.png"/>
+              <Image iconType="3" name="/iconform/ubahbutton.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -226,7 +226,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\EVENT.png"/>
+              <Image iconType="3" name="/iconform/formeventpanel.png"/>
             </Property>
           </Properties>
           <Constraints>

@@ -98,7 +98,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
         txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, -1));
 
-        btnLogin.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\Group 1 (1).png")); // NOI18N
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/loginbutton.png"))); // NOI18N
         btnLogin.setBorder(null);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +115,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
         });
         jPanel1.add(isAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 100, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\login_pemancingan.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/login_pemancingan.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

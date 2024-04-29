@@ -136,7 +136,6 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtTerpilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 190, -1));
 
-        btnPilih.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\Group 5.png")); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +156,6 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 108, 400, 153));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\tambah_akun.png")); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,7 +164,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, -1, -1));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\hapus_event.png")); // NOI18N
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +173,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\TBLPILHBRNG.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formpilihbarangframe2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(908, 449));

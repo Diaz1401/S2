@@ -131,7 +131,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtTerpilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 190, -1));
 
-        btnPilih.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\Group 5.png")); // NOI18N
+        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/gunakanpilihandankeluar.png"))); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +158,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 200, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\PILIH BARANG.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formpilihbarangframe.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(908, 449));

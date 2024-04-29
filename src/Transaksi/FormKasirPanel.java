@@ -99,7 +99,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         txtTransaksi.setEnabled(false);
         pnKasir.add(txtTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 163, -1));
 
-        btnFinal.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\btn proses.png")); // NOI18N
+        btnFinal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/prosesbutton.png"))); // NOI18N
         btnFinal.setBorder(null);
         btnFinal.setEnabled(false);
         btnFinal.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         pnKasir.add(txtDTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 163, -1));
 
         btnPilih.setBackground(new java.awt.Color(232, 207, 190));
-        btnPilih.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\btn pilih01.png")); // NOI18N
+        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/pilihbarangbutton.png"))); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +125,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         pnKasir.add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 40));
         pnKasir.add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 150, 35));
 
-        btnHitung.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\btn hitung 01.png")); // NOI18N
+        btnHitung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hitungbutton.png"))); // NOI18N
         btnHitung.setBorder(null);
         btnHitung.setEnabled(false);
         btnHitung.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +144,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         pnKasir.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, -1, -1));
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\kasir_1 (1).png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formkasirpanel.png"))); // NOI18N
         pnKasir.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         jLabel6.getAccessibleContext().setAccessibleDescription("");
 

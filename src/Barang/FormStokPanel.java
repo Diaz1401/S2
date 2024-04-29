@@ -135,7 +135,7 @@ public class FormStokPanel extends javax.swing.JPanel {
         txtJumlah.setEnabled(false);
         pnStok.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 185, -1));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\tambahstok.png")); // NOI18N
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +144,7 @@ public class FormStokPanel extends javax.swing.JPanel {
         });
         pnStok.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, 110, -1));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\hapusstok.png")); // NOI18N
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +167,6 @@ public class FormStokPanel extends javax.swing.JPanel {
         });
         pnStok.add(txtBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 187, 20));
 
-        btnPilih.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\pilihstok.png")); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +180,7 @@ public class FormStokPanel extends javax.swing.JPanel {
         txtTotal.setEnabled(false);
         pnStok.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 187, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\st2.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formstokkpanel.png"))); // NOI18N
         pnStok.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

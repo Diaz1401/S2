@@ -158,7 +158,7 @@ public class FormEventPanel extends javax.swing.JPanel {
 
         pnEvent.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 730, 110));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\tambah_event.png")); // NOI18N
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +167,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 420, 90, -1));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\hapus_event.png")); // NOI18N
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +179,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         txtTanggal.setDateFormatString("yyyy-MM-dd");
         pnEvent.add(txtTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 220, 40));
 
-        btnUbah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\ubah_event.png")); // NOI18N
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/ubahbutton.png"))); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +188,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 110, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\EVENT.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formeventpanel.png"))); // NOI18N
         pnEvent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

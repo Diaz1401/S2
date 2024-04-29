@@ -127,7 +127,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
         txtHarga.setBorder(null);
         pnEvent.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 180, -1));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\tambah_event.png")); // NOI18N
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,6 @@ public class FormBarangPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, 100, -1));
 
-        btnUbah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\hapusbarang.png")); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +150,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
         txtStok.setEnabled(false);
         pnEvent.add(txtStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 180, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\brg2.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formbarangpanel.png"))); // NOI18N
         pnEvent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

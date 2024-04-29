@@ -114,7 +114,6 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnTopBar, java.awt.BorderLayout.PAGE_START);
 
-        pnUtama2.setBackground(new java.awt.Color(232, 207, 190));
         pnUtama2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pnUtama1Layout = new javax.swing.GroupLayout(pnUtama1);

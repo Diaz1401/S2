@@ -98,7 +98,7 @@
         <Component class="javax.swing.JButton" name="btnFinal">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\btn proses.png"/>
+              <Image iconType="3" name="/iconform/prosesbutton.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -136,7 +136,7 @@
               <Color blue="be" green="cf" red="e8" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\btn pilih01.png"/>
+              <Image iconType="3" name="/iconform/pilihbarangbutton.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -161,7 +161,7 @@
         <Component class="javax.swing.JButton" name="btnHitung">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\btn hitung 01.png"/>
+              <Image iconType="3" name="/iconform/hitungbutton.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -220,7 +220,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\kasir_1 (1).png"/>
+              <Image iconType="3" name="/iconform/formkasirpanel.png"/>
             </Property>
           </Properties>
           <AccessibilityProperties>

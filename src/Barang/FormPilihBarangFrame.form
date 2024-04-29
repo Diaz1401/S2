@@ -101,7 +101,7 @@
     <Component class="javax.swing.JButton" name="btnPilih">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\Group 5.png"/>
+          <Image iconType="3" name="/iconform/gunakanpilihandankeluar.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -140,7 +140,7 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\fikri sabili\Downloads\A pemancingan\PILIH BARANG.png"/>
+          <Image iconType="3" name="/iconform/formpilihbarangframe.png"/>
         </Property>
       </Properties>
       <Constraints>
