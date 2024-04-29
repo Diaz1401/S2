@@ -95,22 +95,23 @@ public class FormStokPanel extends javax.swing.JPanel {
         txtJumlah = new javax.swing.JTextField();
         btnTambah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtTanggal = new com.toedter.calendar.JDateChooser();
         txtBarang = new javax.swing.JTextField();
         btnPilih = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         pnStok.setPreferredSize(new java.awt.Dimension(960, 600));
+        pnStok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTitleStok.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitleStok.setText("Tambah Stok Barang");
+        pnStok.add(lbTitleStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 6, 621, 60));
 
+        txtStok.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtStok.setBorder(null);
         txtStok.setEnabled(false);
+        pnStok.add(txtStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 200, 20));
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,121 +128,61 @@ public class FormStokPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Table);
 
-        txtJumlah.setEnabled(false);
+        pnStok.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 660, 370));
 
-        btnTambah.setText("Tambah");
+        txtJumlah.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtJumlah.setBorder(null);
+        txtJumlah.setEnabled(false);
+        pnStok.add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 185, -1));
+
+        btnTambah.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\tambahstok.png")); // NOI18N
+        btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
             }
         });
+        pnStok.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 480, 110, -1));
 
-        btnHapus.setText("Hapus");
+        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\hapusstok.png")); // NOI18N
+        btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ID Barang Masuk");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("ID Barang");
+        pnStok.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 520, 110, -1));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Jumlah");
+        pnStok.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 172, 185, -1));
+        pnStok.add(txtTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 220, 40));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Tanggal");
-
+        txtBarang.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtBarang.setBorder(null);
         txtBarang.setEnabled(false);
+        txtBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBarangActionPerformed(evt);
+            }
+        });
+        pnStok.add(txtBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 187, 20));
 
-        btnPilih.setText("Pilih Barang");
+        btnPilih.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\pilihstok.png")); // NOI18N
+        btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
+        pnStok.add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 160, -1));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Total");
-
+        txtTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTotal.setBorder(null);
         txtTotal.setEnabled(false);
+        pnStok.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 187, -1));
 
-        javax.swing.GroupLayout pnStokLayout = new javax.swing.GroupLayout(pnStok);
-        pnStok.setLayout(pnStokLayout);
-        pnStokLayout.setHorizontalGroup(
-            pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnStokLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtBarang)
-                    .addComponent(btnPilih, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtTotal)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnStokLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtStok)
-                            .addComponent(txtJumlah)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lbTitleStok, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnTambah, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
-        pnStokLayout.setVerticalGroup(
-            pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnStokLayout.createSequentialGroup()
-                .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnStokLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStok, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(btnPilih))
-                    .addGroup(pnStokLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbTitleStok, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnStokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnStokLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnStokLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(btnTambah)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnHapus)))))
-                .addContainerGap(216, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\st2.png")); // NOI18N
+        pnStok.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -382,17 +323,18 @@ public class FormStokPanel extends javax.swing.JPanel {
         new FormPilihBarangFrame().setVisible(true);
     }//GEN-LAST:event_btnPilihActionPerformed
 
+    private void txtBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBarangActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnPilih;
     private javax.swing.JButton btnTambah;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTitleStok;
     private javax.swing.JPanel pnStok;

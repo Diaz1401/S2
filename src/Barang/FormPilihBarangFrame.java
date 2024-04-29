@@ -67,20 +67,16 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableSearch = new javax.swing.JTable();
         txtCari = new javax.swing.JTextField();
         txtTerpilih = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         btnPilih = new javax.swing.JButton();
         txtJumlah = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Tabel Barang Tersedia");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TableSearch.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,7 +93,11 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableSearch);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 136, 850, 180));
+
+        txtCari.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCari.setText("Cari barang . . .");
+        txtCari.setBorder(null);
         txtCari.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtCariFocusGained(evt);
@@ -119,22 +119,30 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
                 txtCariActionPerformed(evt);
             }
         });
+        getContentPane().add(txtCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 102, 190, 20));
 
+        txtTerpilih.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTerpilih.setBorder(null);
         txtTerpilih.setEnabled(false);
+        txtTerpilih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTerpilihActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTerpilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 190, -1));
 
-        jLabel2.setText("Masukan kata kunci disini");
-
-        jLabel3.setText("Barang terpilih");
-        jLabel3.setToolTipText("");
-
-        btnPilih.setText("Gunakan Pilihan & Keluar");
+        btnPilih.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\Group 5.png")); // NOI18N
+        btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
+        getContentPane().add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
 
+        txtJumlah.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtJumlah.setText("Jumlah barang . . .");
+        txtJumlah.setBorder(null);
         txtJumlah.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtJumlahFocusGained(evt);
@@ -148,55 +156,10 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
                 txtJumlahActionPerformed(evt);
             }
         });
+        getContentPane().add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 200, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCari)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(txtTerpilih, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnPilih)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtJumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTerpilih, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnPilih)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\PILIH BARANG.png")); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(908, 449));
         setLocationRelativeTo(null);
@@ -261,18 +224,6 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         harga = Integer.parseInt(TableSearch.getValueAt(row, 2).toString());
     }//GEN-LAST:event_TableSearchMouseClicked
 
-    private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
-        if (txtJumlah.getText().isEmpty() || txtJumlah.getText().equals("Jumlah barang . . .")) {
-            JOptionPane.showMessageDialog(this, "Masukan jumlah barang terlebih dahulu !!!");
-            return;
-        }
-        String totalString = Integer.toString(Integer.parseInt(txtJumlah.getText()) * harga);
-        FormStokPanel.txtJumlah.setText(txtJumlah.getText());
-        FormStokPanel.txtBarang.setText(txtTerpilih.getText());
-        FormStokPanel.txtTotal.setText(totalString);
-        dispose();
-    }//GEN-LAST:event_btnPilihActionPerformed
-
     private void txtJumlahFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJumlahFocusGained
         if (txtJumlah.getText().equals("Jumlah barang . . ."))
             txtJumlah.setText("");
@@ -286,6 +237,22 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
     private void txtJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtJumlahActionPerformed
+
+    private void txtTerpilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTerpilihActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTerpilihActionPerformed
+
+    private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
+        if (txtJumlah.getText().isEmpty() || txtJumlah.getText().equals("Jumlah barang . . .")) {
+            JOptionPane.showMessageDialog(this, "Masukan jumlah barang terlebih dahulu !!!");
+            return;
+        }
+        String totalString = Integer.toString(Integer.parseInt(txtJumlah.getText()) * harga);
+        FormStokPanel.txtJumlah.setText(txtJumlah.getText());
+        FormStokPanel.txtBarang.setText(txtTerpilih.getText());
+        FormStokPanel.txtTotal.setText(totalString);
+        dispose();
+    }//GEN-LAST:event_btnPilihActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,9 +293,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TableSearch;
     private javax.swing.JButton btnPilih;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCari;
     private javax.swing.JTextField txtJumlah;

@@ -49,7 +49,6 @@ public class FormDashboardFrame extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         pnSideBar.setPreferredSize(new java.awt.Dimension(250, 380));
 
@@ -90,7 +89,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnSideBarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnSideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -100,7 +99,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnSideBar, java.awt.BorderLayout.LINE_START);
 
-        pnTopBar.setBackground(new java.awt.Color(249, 210, 88));
+        pnTopBar.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout pnTopBarLayout = new javax.swing.GroupLayout(pnTopBar);
         pnTopBar.setLayout(pnTopBarLayout);
@@ -115,6 +114,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnTopBar, java.awt.BorderLayout.PAGE_START);
 
+        pnUtama2.setBackground(new java.awt.Color(232, 207, 190));
         pnUtama2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pnUtama1Layout = new javax.swing.GroupLayout(pnUtama1);

@@ -79,14 +79,15 @@ public class FormListPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
         btnHapus = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtKeterangan = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         pnTransaksi.setPreferredSize(new java.awt.Dimension(960, 600));
+        pnTransaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTitleTransaksi.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitleTransaksi.setText("Data Transaksi");
+        pnTransaksi.add(lbTitleTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 750, 60));
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,49 +104,27 @@ public class FormListPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Table);
 
-        btnHapus.setText("Hapus");
+        pnTransaksi.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 860, 250));
+
+        btnHapus.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\Group 4.png")); // NOI18N
+        btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Keterangan");
+        pnTransaksi.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, 110, -1));
 
         txtKeterangan.setColumns(20);
+        txtKeterangan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtKeterangan.setRows(5);
+        txtKeterangan.setBorder(null);
         jScrollPane2.setViewportView(txtKeterangan);
 
-        javax.swing.GroupLayout pnTransaksiLayout = new javax.swing.GroupLayout(pnTransaksi);
-        pnTransaksi.setLayout(pnTransaksiLayout);
-        pnTransaksiLayout.setHorizontalGroup(
-            pnTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTransaksiLayout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
-                .addGroup(pnTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lbTitleTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        pnTransaksiLayout.setVerticalGroup(
-            pnTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnTransaksiLayout.createSequentialGroup()
-                .addComponent(lbTitleTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnHapus)
-                .addContainerGap(177, Short.MAX_VALUE))
-        );
+        pnTransaksi.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 860, 140));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\fikri sabili\\Downloads\\A pemancingan\\TRANSAKSI.png")); // NOI18N
+        pnTransaksi.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -232,7 +211,7 @@ public class FormListPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
     private javax.swing.JButton btnHapus;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbTitleTransaksi;
