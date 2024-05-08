@@ -29,6 +29,8 @@ public class FormBackgroundPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(212, 187, 170));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icon/LightBG.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

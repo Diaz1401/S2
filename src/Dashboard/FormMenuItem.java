@@ -30,7 +30,7 @@ public class FormMenuItem extends javax.swing.JPanel {
     public FormMenuItem(Icon icon, Icon iconSub, boolean SubMenu, String menuName, ActionListener act, FormMenuItem... subMenu) {
         initComponents();
         if (!SubMenu)
-            pnMainMenu.putClientProperty(FlatClientProperties.STYLE, "arc:12;background:$Login.background");
+            pnMainMenu.putClientProperty(FlatClientProperties.STYLE, "arc:12;background:rgb(255,255,255)");
         lbIcon.setIcon(icon);
         lbMenu.setText(menuName);
         lbIconSub.setIcon(iconSub);
@@ -63,6 +63,7 @@ public class FormMenuItem extends javax.swing.JPanel {
         lbIconSub = new javax.swing.JLabel();
         lbMenu = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(192, 167, 150));
         setPreferredSize(new java.awt.Dimension(250, 48));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {

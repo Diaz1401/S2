@@ -91,6 +91,8 @@ public class FormBarangPanel extends javax.swing.JPanel {
         txtStok = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(212, 187, 170));
+
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
         pnEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -136,6 +138,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, 100, -1));
 
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/ubahbutton.png"))); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

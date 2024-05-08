@@ -5,6 +5,8 @@
 package Dashboard;
 
 import Background.FormBackgroundPanel;
+import com.formdev.flatlaf.FlatClientProperties;
+//import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
@@ -23,6 +25,14 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         initComponents();
         execute();
+//        pnTopBar.putClientProperty(FlatClientProperties.STYLE, ""
+//                + "background:rgb(192,167,150)");
+//        pnUtama2.putClientProperty(FlatClientProperties.STYLE, ""
+//                + "arc:12;" // Sudut
+//                + "background:rgb(60,60,60)");
+//        pnUtama1.putClientProperty(FlatClientProperties.STYLE, ""
+//                + "arc:12;" // Sudut
+//                + "background:rgb(60,60,60)");
     }
 
     /**
@@ -50,10 +60,12 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             }
         });
 
+        pnSideBar.setBackground(new java.awt.Color(192, 167, 150));
         pnSideBar.setPreferredSize(new java.awt.Dimension(250, 380));
 
         jScrollPane1.setBorder(null);
 
+        pnMenu.setBackground(new java.awt.Color(192, 167, 150));
         pnMenu.setLayout(new javax.swing.BoxLayout(pnMenu, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(pnMenu);
 
@@ -99,7 +111,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnSideBar, java.awt.BorderLayout.LINE_START);
 
-        pnTopBar.setBackground(new java.awt.Color(255, 255, 255));
+        pnTopBar.setBackground(new java.awt.Color(192, 167, 150));
 
         javax.swing.GroupLayout pnTopBarLayout = new javax.swing.GroupLayout(pnTopBar);
         pnTopBar.setLayout(pnTopBarLayout);
@@ -114,6 +126,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnTopBar, java.awt.BorderLayout.PAGE_START);
 
+        pnUtama2.setBackground(new java.awt.Color(212, 187, 170));
         pnUtama2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pnUtama1Layout = new javax.swing.GroupLayout(pnUtama1);

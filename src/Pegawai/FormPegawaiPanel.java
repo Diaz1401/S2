@@ -41,6 +41,7 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
             btnHapus.setEnabled(false);
             btnUbah.setEnabled(false);
         }
+        
     }
 
     public void UpdateTable() {
@@ -94,6 +95,8 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         txtGaji = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(212, 187, 170));
+
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
         pnEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -135,6 +138,7 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         txtNama.setBorder(null);
         pnEvent.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 169, -1));
 
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +156,7 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         });
         pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, 110, -1));
 
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/ubahbutton.png"))); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

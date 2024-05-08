@@ -136,6 +136,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtTerpilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 190, -1));
 
+        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/gunakanpilihandankeluar.png"))); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,6 +157,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 108, 400, 153));
 
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

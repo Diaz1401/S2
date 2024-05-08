@@ -83,6 +83,8 @@ public class FormListPanel extends javax.swing.JPanel {
         txtKeterangan = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(212, 187, 170));
+
         pnTransaksi.setPreferredSize(new java.awt.Dimension(960, 600));
         pnTransaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

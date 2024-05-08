@@ -102,6 +102,8 @@ public class FormStokPanel extends javax.swing.JPanel {
         txtTotal = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(212, 187, 170));
+
         pnStok.setPreferredSize(new java.awt.Dimension(960, 600));
         pnStok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -167,13 +169,14 @@ public class FormStokPanel extends javax.swing.JPanel {
         });
         pnStok.add(txtBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 187, 20));
 
+        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/pilihbarangbutton.png"))); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
-        pnStok.add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 160, -1));
+        pnStok.add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 170, -1));
 
         txtTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTotal.setBorder(null);

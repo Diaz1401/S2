@@ -38,6 +38,9 @@ public class FormEventPanel extends javax.swing.JPanel {
                 + "background:$Login.background");
         lbTitleEvent.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:+bold +20");
+//        JPanel.putClientProperty(FlatClientProperties.STYLE, ""
+//                + "arc:12;" // Sudut
+//                + "background:rgb(60,60,60)");
     }
 
     public void UpdateTable() {
@@ -99,6 +102,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         btnUbah = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(212, 187, 170));
         setPreferredSize(new java.awt.Dimension(453, 453));
 
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
