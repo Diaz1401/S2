@@ -63,7 +63,7 @@ public class FormMenuItem extends javax.swing.JPanel {
         lbIconSub = new javax.swing.JLabel();
         lbMenu = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(192, 167, 150));
+        setBackground(new java.awt.Color(104, 132, 179));
         setPreferredSize(new java.awt.Dimension(250, 48));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -109,7 +109,7 @@ public class FormMenuItem extends javax.swing.JPanel {
             .addComponent(pnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+   
     private boolean showing = true;
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         if (showing) {

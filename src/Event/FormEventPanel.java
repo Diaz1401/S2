@@ -6,6 +6,7 @@ package Event;
 
 import Koneksi.Koneksi;
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Color;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +34,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         initComponents();
         txtIDEvent.setText(GenerateID());
         UpdateTable();
+        transparan();
         pnEvent.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:12;" // Sudut
                 + "background:$Login.background");
@@ -41,6 +43,12 @@ public class FormEventPanel extends javax.swing.JPanel {
 //        JPanel.putClientProperty(FlatClientProperties.STYLE, ""
 //                + "arc:12;" // Sudut
 //                + "background:rgb(60,60,60)");
+    }
+    
+     public void transparan(){
+        btnTambah.setBackground(new Color(0,0,0,0));
+        btnUbah.setBackground(new Color(0,0,0,0));
+        btnHapus.setBackground(new Color(0,0,0,0));
     }
 
     public void UpdateTable() {
@@ -102,7 +110,7 @@ public class FormEventPanel extends javax.swing.JPanel {
         btnUbah = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(212, 187, 170));
+        setBackground(new java.awt.Color(215, 223, 235));
         setPreferredSize(new java.awt.Dimension(453, 453));
 
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
@@ -160,39 +168,36 @@ public class FormEventPanel extends javax.swing.JPanel {
         txtDeskripsi.setRows(5);
         jScrollPane2.setViewportView(txtDeskripsi);
 
-        pnEvent.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 730, 110));
+        pnEvent.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 740, 120));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
             }
         });
-        pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 420, 90, -1));
+        pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 410, 100, 40));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-        pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 500, 110, -1));
+        pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 490, 100, 40));
 
         txtTanggal.setDateFormatString("yyyy-MM-dd");
         pnEvent.add(txtTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 220, 40));
 
-        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/ubahbutton.png"))); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahActionPerformed(evt);
             }
         });
-        pnEvent.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 110, -1));
+        pnEvent.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 450, 100, 40));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formeventpanel.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/EVENT.png"))); // NOI18N
         pnEvent.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

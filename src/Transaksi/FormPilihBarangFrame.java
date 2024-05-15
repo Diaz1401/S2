@@ -5,6 +5,7 @@
 package Transaksi;
 
 import Koneksi.Koneksi;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,6 +33,13 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         initComponents();
         UpdateTable();
         SetupTable();
+        transparan();
+    }
+
+    public void transparan(){
+        btnTambah.setBackground(new Color(0,0,0,0));
+        btnPilih.setBackground(new Color(0,0,0,0));
+        btnHapus.setBackground(new Color(0,0,0,0));
     }
 
     public void SetupTable() {
@@ -100,7 +108,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableSearch);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 108, 470, 153));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 470, 153));
 
         btnCari.setText("Cari barang . . .");
         btnCari.setBorder(null);
@@ -136,14 +144,13 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtTerpilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 190, -1));
 
-        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/gunakanpilihandankeluar.png"))); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, -1, -1));
+        getContentPane().add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 290, 40));
 
         TableSelect.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -155,30 +162,28 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(TableSelect);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 108, 400, 153));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 120, 400, 153));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
             }
         });
-        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 320, -1, -1));
+        getContentPane().add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 290, 100, 40));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 360, -1, -1));
+        getContentPane().add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 100, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formpilihbarangframe2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/TBLPILHBRNG.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        setSize(new java.awt.Dimension(908, 449));
+        setSize(new java.awt.Dimension(1018, 449));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,7 +246,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
     private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
         // Reset value
         FormKasirPanel.barang = new String[10];
-        FormKasirPanel.btnHitung.setEnabled(true);
+        FormKasirPanel.BTNHITUNG.setEnabled(true);
         int rowCount = TableSelect.getRowCount();
         if (rowCount > 10) {
             JOptionPane.showMessageDialog(this, "Error: Barang terpilih maksimal 10");
@@ -274,7 +279,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
             }
         }
         dispose();
-        FormKasirPanel.btnHitung.setEnabled(true);
+        FormKasirPanel.BTNHITUNG.setEnabled(true);
     }//GEN-LAST:event_btnPilihActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed

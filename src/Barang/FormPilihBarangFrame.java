@@ -6,6 +6,7 @@ package Barang;
 
 import Transaksi.*;
 import Koneksi.Koneksi;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,6 +34,11 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
     public FormPilihBarangFrame() {
         initComponents();
         UpdateTable();
+        transparan();
+    }
+
+    public void transparan(){
+        btnPilih.setBackground(new Color(0,0,0,0)); 
     }
 
     public void UpdateTable() {
@@ -119,7 +125,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
                 txtCariActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 102, 190, 20));
+        getContentPane().add(txtCari, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 190, 20));
 
         txtTerpilih.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTerpilih.setBorder(null);
@@ -131,14 +137,13 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtTerpilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 190, -1));
 
-        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/gunakanpilihandankeluar.png"))); // NOI18N
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
+        getContentPane().add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 290, 40));
 
         txtJumlah.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtJumlah.setText("Jumlah barang . . .");
@@ -158,7 +163,7 @@ public class FormPilihBarangFrame extends javax.swing.JFrame {
         });
         getContentPane().add(txtJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 200, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formpilihbarangframe.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/setok barang.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         setSize(new java.awt.Dimension(908, 449));

@@ -9,6 +9,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Koneksi.Koneksi;
+import java.awt.Color;
 
 /**
  *
@@ -27,23 +28,57 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
     public FormPegawaiPanel() {
         initComponents();
         UpdateTable();
+     
         pnEvent.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:12;" // Sudut
                 + "background:$Login.background");
         lbTitleEvent.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:+bold +20");
         if (Login.FormLoginFrame.isAdmin.isSelected()) {
-            btnTambah.setEnabled(true);
-            btnHapus.setEnabled(true);
-            btnUbah.setEnabled(true);
-        } else {
-            btnTambah.setEnabled(false);
-            btnHapus.setEnabled(false);
-            btnUbah.setEnabled(false);
-        }
-        
-    }
+    btnTambah.setEnabled(true);
+    btnHapus.setEnabled(true);
+    btnUbah.setEnabled(true);
+    btntampil.setEnabled(true);
+} else {
+    btnTambah.setEnabled(false);
+    btnHapus.setEnabled(false);
+    btnUbah.setEnabled(false);
+    btntampil.setEnabled(false);
 
+    // Set warna
+    Color bgColor = new Color(104, 132, 179);
+
+    btnTambah.setBackground(bgColor);
+    btnHapus.setBackground(bgColor);
+    btnUbah.setBackground(bgColor);
+    btntampil.setBackground(bgColor);
+
+    // Set opaque untuk memastikan warna background terlihat
+    btnTambah.setOpaque(true);
+    btnHapus.setOpaque(true);
+    btnUbah.setOpaque(true);
+    btntampil.setOpaque(true);
+
+    // Remove borders if needed
+    btnTambah.setBorderPainted(false);
+    btnHapus.setBorderPainted(false);
+    btnUbah.setBorderPainted(false);
+    btntampil.setBorderPainted(false);
+
+    // Remove content area filled if needed
+    btnTambah.setContentAreaFilled(false);
+    btnHapus.setContentAreaFilled(false);
+    btnUbah.setContentAreaFilled(false);
+    btntampil.setContentAreaFilled(false);
+
+    // Refresh UI untuk memastikan perubahan terlihat
+    btnTambah.repaint();
+    btnHapus.repaint();
+    btnUbah.repaint();
+    btntampil.repaint();
+}
+       
+    }
     public void UpdateTable() {
         DefaultTableModel tbl = new DefaultTableModel();
         tbl.addColumn("ID/Username");
@@ -52,26 +87,25 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         tbl.addColumn("Jabatan");
         tbl.addColumn("Gaji");
         Table.setModel(tbl);
-        try {
-            cn = Koneksi.koneksiDB();
-            st = cn.createStatement();
-            rs = st.executeQuery("SELECT * FROM pegawai");
-
-            while (rs.next()) {
-                tbl.addRow(new Object[]{
-                    rs.getString("id_pegawai"),
-                    rs.getString("password"),
-                    rs.getString("nama"),
-                    rs.getString("jabatan"),
-                    rs.getString("gaji")
-                });
-                Table.setModel(tbl);
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
-        }
+//        try {
+//            cn = Koneksi.koneksiDB();
+//            st = cn.createStatement();
+//            rs = st.executeQuery("SELECT * FROM pegawai");
+//
+//            while (rs.next()) {
+//                tbl.addRow(new Object[]{
+//                    rs.getString("id_pegawai"),
+//                    rs.getString("password"),
+//                    rs.getString("nama"),
+//                    rs.getString("jabatan"),
+//                    rs.getString("gaji")
+//                });
+//                Table.setModel(tbl);
+//            }
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
+//        }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,11 +125,12 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         btnTambah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
+        btntampil = new javax.swing.JButton();
         txtJabatan = new javax.swing.JTextField();
         txtGaji = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(212, 187, 170));
+        setBackground(new java.awt.Color(215, 223, 235));
 
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
         pnEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -138,32 +173,45 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         txtNama.setBorder(null);
         pnEvent.add(txtNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 169, -1));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
+        btnTambah.setBackground(new java.awt.Color(104, 132, 179));
+        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/btnTAMBAH.png"))); // NOI18N
         btnTambah.setBorder(null);
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTambahActionPerformed(evt);
             }
         });
-        pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 110, -1));
+        pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 440, 110, 40));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
+        btnHapus.setBackground(new java.awt.Color(104, 132, 179));
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/btnHAPUS.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-        pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, 110, -1));
+        pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 520, 110, 40));
 
-        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/ubahbutton.png"))); // NOI18N
+        btnUbah.setBackground(new java.awt.Color(104, 132, 179));
+        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/btnUBAH.png"))); // NOI18N
         btnUbah.setBorder(null);
         btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUbahActionPerformed(evt);
             }
         });
-        pnEvent.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, 110, -1));
+        pnEvent.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 110, 40));
+
+        btntampil.setBackground(new java.awt.Color(104, 132, 179));
+        btntampil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/btnTAMPIL.png"))); // NOI18N
+        btntampil.setBorder(null);
+        btntampil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btntampilActionPerformed(evt);
+            }
+        });
+        pnEvent.add(btntampil, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 400, 90, 40));
 
         txtJabatan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtJabatan.setBorder(null);
@@ -183,7 +231,7 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         });
         pnEvent.add(txtGaji, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 190, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formpegawaipanel.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/AKUN.png"))); // NOI18N
         pnEvent.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1000, 640));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -351,12 +399,43 @@ public class FormPegawaiPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtGajiActionPerformed
 
+    private void btntampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntampilActionPerformed
+        DefaultTableModel tbl = new DefaultTableModel();
+        tbl.addColumn("ID/Username");
+        tbl.addColumn("Password");
+        tbl.addColumn("Nama");
+        tbl.addColumn("Jabatan");
+        tbl.addColumn("Gaji");
+        Table.setModel(tbl);
+        try {
+            cn = Koneksi.koneksiDB();
+            st = cn.createStatement();
+            rs = st.executeQuery("SELECT * FROM pegawai");
+
+            while (rs.next()) {
+                tbl.addRow(new Object[]{
+                    rs.getString("id_pegawai"),
+                    rs.getString("password"),
+                    rs.getString("nama"),
+                    rs.getString("jabatan"),
+                    rs.getString("gaji")
+                });
+                Table.setModel(tbl);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_btntampilActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnUbah;
+    private javax.swing.JButton btntampil;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTitleEvent;

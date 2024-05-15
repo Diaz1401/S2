@@ -7,6 +7,7 @@ package Login;
 import Koneksi.Koneksi;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 import java.awt.Container;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,8 +36,12 @@ public class FormLoginFrame extends javax.swing.JFrame {
      */
     public FormLoginFrame() {
         initComponents();
+        transparan();
     }
 
+     public void transparan(){
+        btnLogin.setBackground(new Color(0,0,0,0));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,14 +103,13 @@ public class FormLoginFrame extends javax.swing.JFrame {
         txtPassword.setBorder(null);
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, -1));
 
-        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/loginbutton.png"))); // NOI18N
         btnLogin.setBorder(null);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 110, 50));
+        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, 100, 40));
 
         isAdmin.setText("Admin");
         isAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +119,7 @@ public class FormLoginFrame extends javax.swing.JFrame {
         });
         jPanel1.add(isAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 100, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/login_pemancingan.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/login.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

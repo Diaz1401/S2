@@ -4,12 +4,15 @@
  */
 package Barang;
 
+//update = 8-may-2024
+
 import com.formdev.flatlaf.FlatClientProperties;
 import java.sql.*;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Koneksi.Koneksi;
+import java.awt.Color;
 
 /**
  *
@@ -27,6 +30,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
      */
     public FormBarangPanel() {
         initComponents();
+        transparan();
         UpdateTable();
         txtBarang.setText(GenerateID());
         pnEvent.putClientProperty(FlatClientProperties.STYLE, ""
@@ -36,6 +40,14 @@ public class FormBarangPanel extends javax.swing.JPanel {
                 + "font:+bold +20");
     }
 
+    /**
+     *
+     */
+    public void transparan(){
+        tambahbarang.setBackground(new Color(0,0,0,0));
+        ubahtn.setBackground(new Color(0,0,0,0));
+        
+    }
     public void UpdateTable() {
         DefaultTableModel tbl = new DefaultTableModel();
         tbl.addColumn("ID Barang");
@@ -69,6 +81,8 @@ public class FormBarangPanel extends javax.swing.JPanel {
         String id = "BRG_" + number;
         return id;
     }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,12 +100,12 @@ public class FormBarangPanel extends javax.swing.JPanel {
         Table = new javax.swing.JTable();
         txtNama = new javax.swing.JTextField();
         txtHarga = new javax.swing.JTextField();
-        btnTambah = new javax.swing.JButton();
-        btnUbah = new javax.swing.JButton();
+        ubahtn = new javax.swing.JButton();
         txtStok = new javax.swing.JTextField();
+        tambahbarang = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(212, 187, 170));
+        setBackground(new java.awt.Color(215, 223, 235));
 
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
         pnEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,23 +143,13 @@ public class FormBarangPanel extends javax.swing.JPanel {
         txtHarga.setBorder(null);
         pnEvent.add(txtHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 180, -1));
 
-        btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/tambah button.png"))); // NOI18N
-        btnTambah.setBorder(null);
-        btnTambah.addActionListener(new java.awt.event.ActionListener() {
+        ubahtn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        ubahtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTambahActionPerformed(evt);
+                ubahtnActionPerformed(evt);
             }
         });
-        pnEvent.add(btnTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, 100, -1));
-
-        btnUbah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/ubahbutton.png"))); // NOI18N
-        btnUbah.setBorder(null);
-        btnUbah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUbahActionPerformed(evt);
-            }
-        });
-        pnEvent.add(btnUbah, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 520, 120, -1));
+        pnEvent.add(ubahtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 540, 90, 30));
 
         txtStok.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtStok.setText("0");
@@ -153,7 +157,15 @@ public class FormBarangPanel extends javax.swing.JPanel {
         txtStok.setEnabled(false);
         pnEvent.add(txtStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 180, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formbarangpanel.png"))); // NOI18N
+        tambahbarang.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        tambahbarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahbarangActionPerformed(evt);
+            }
+        });
+        pnEvent.add(tambahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 90, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/BARANG.png"))); // NOI18N
         pnEvent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -174,7 +186,19 @@ public class FormBarangPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
+    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
+        int row = Table.getSelectedRow();
+        String id_barang = Table.getValueAt(row, 0).toString();
+        String nama = Table.getValueAt(row, 1).toString();
+        String harga = Table.getValueAt(row, 2).toString();
+        String stok = Table.getValueAt(row, 3).toString();
+        txtBarang.setText(id_barang);
+        txtNama.setText(nama);
+        txtHarga.setText(harga);
+        txtStok.setText(stok);
+    }//GEN-LAST:event_TableMouseClicked
+
+    private void tambahbarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahbarangActionPerformed
         if (txtBarang.getText().isEmpty()
                 || txtNama.getText().isEmpty()
                 || txtHarga.getText().isEmpty()
@@ -209,9 +233,9 @@ public class FormBarangPanel extends javax.swing.JPanel {
         }
         // Update table
         UpdateTable();
-    }//GEN-LAST:event_btnTambahActionPerformed
+    }//GEN-LAST:event_tambahbarangActionPerformed
 
-    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
+    private void ubahtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahtnActionPerformed
         String id_barang = txtBarang.getText();
         String nama = txtNama.getText();
         String harga = txtHarga.getText();
@@ -221,21 +245,17 @@ public class FormBarangPanel extends javax.swing.JPanel {
             String sql = "UPDATE barang SET nama = ?, harga = ?, stok = ? WHERE id_barang = ?";
             cn = Koneksi.koneksiDB();
             pst = cn.prepareStatement(sql);
-
             // Set the parameter values
             pst.setString(1, nama);
             pst.setString(2, harga);
             pst.setString(3, stok);
             pst.setString(4, id_barang);
-
             // Execute the statement
             pst.executeUpdate();
-
             JOptionPane.showMessageDialog(null, "Data berhasil diubah");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Gagal mengubah data: " + e.getMessage());
         }
-
         // Clear text
         txtBarang.setText(null);
         txtNama.setText(null);
@@ -244,32 +264,20 @@ public class FormBarangPanel extends javax.swing.JPanel {
 
         // Update table
         UpdateTable();
-    }//GEN-LAST:event_btnUbahActionPerformed
-
-    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
-        int row = Table.getSelectedRow();
-        String id_barang = Table.getValueAt(row, 0).toString();
-        String nama = Table.getValueAt(row, 1).toString();
-        String harga = Table.getValueAt(row, 2).toString();
-        String stok = Table.getValueAt(row, 3).toString();
-        txtBarang.setText(id_barang);
-        txtNama.setText(nama);
-        txtHarga.setText(harga);
-        txtStok.setText(stok);
-    }//GEN-LAST:event_TableMouseClicked
+    }//GEN-LAST:event_ubahtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
-    private javax.swing.JButton btnTambah;
-    private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTitleEvent;
     private javax.swing.JPanel pnEvent;
+    private javax.swing.JButton tambahbarang;
     private javax.swing.JTextField txtBarang;
     private javax.swing.JTextField txtHarga;
     private javax.swing.JTextField txtNama;
     private javax.swing.JTextField txtStok;
+    private javax.swing.JButton ubahtn;
     // End of variables declaration//GEN-END:variables
 }

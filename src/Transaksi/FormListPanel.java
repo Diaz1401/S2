@@ -10,6 +10,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Koneksi.Koneksi;
+import java.awt.Color;
 
 /**
  *
@@ -28,17 +29,36 @@ public class FormListPanel extends javax.swing.JPanel {
     public FormListPanel() {
         initComponents();
         UpdateTable();
+        transparan();
         pnTransaksi.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:12;" // Sudut
                 + "background:$Login.background");
         lbTitleTransaksi.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:+bold +20");
         if (Login.FormLoginFrame.isAdmin.isSelected()) {
-            btnHapus.setEnabled(true);
-        } else {
-            btnHapus.setEnabled(false);
-        }
+    btnHapus.setEnabled(true);
+} else {
+    btnHapus.setEnabled(false);
+    // Set warna
+    Color bgColor = new Color(104, 132, 179);
+
+    btnHapus.setBackground(bgColor);
+
+    btnHapus.setOpaque(true);
+
+    btnHapus.setBorderPainted(false);
+
+    btnHapus.setContentAreaFilled(false);
+
+    btnHapus.repaint();
+}
+
     }
+    
+    public void transparan(){
+        btnHapus.setBackground(new Color(0,0,0,0));
+    }
+
 
     public void UpdateTable() {
         DefaultTableModel tbl = new DefaultTableModel();
@@ -83,7 +103,7 @@ public class FormListPanel extends javax.swing.JPanel {
         txtKeterangan = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(212, 187, 170));
+        setBackground(new java.awt.Color(215, 223, 235));
 
         pnTransaksi.setPreferredSize(new java.awt.Dimension(960, 600));
         pnTransaksi.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,14 +128,14 @@ public class FormListPanel extends javax.swing.JPanel {
 
         pnTransaksi.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 860, 250));
 
-        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hapus.png"))); // NOI18N
+        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/btnHAPUS.png"))); // NOI18N
         btnHapus.setBorder(null);
         btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHapusActionPerformed(evt);
             }
         });
-        pnTransaksi.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 530, 110, -1));
+        pnTransaksi.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 530, 110, 40));
 
         txtKeterangan.setColumns(20);
         txtKeterangan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -125,7 +145,7 @@ public class FormListPanel extends javax.swing.JPanel {
 
         pnTransaksi.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 860, 140));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formlistpanel.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/TRANSAKSI.png"))); // NOI18N
         pnTransaksi.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -11,6 +11,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -60,12 +61,12 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             }
         });
 
-        pnSideBar.setBackground(new java.awt.Color(192, 167, 150));
+        pnSideBar.setBackground(new java.awt.Color(104, 132, 179));
         pnSideBar.setPreferredSize(new java.awt.Dimension(250, 380));
 
         jScrollPane1.setBorder(null);
 
-        pnMenu.setBackground(new java.awt.Color(192, 167, 150));
+        pnMenu.setBackground(new java.awt.Color(104, 132, 179));
         pnMenu.setLayout(new javax.swing.BoxLayout(pnMenu, javax.swing.BoxLayout.Y_AXIS));
         jScrollPane1.setViewportView(pnMenu);
 
@@ -111,7 +112,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnSideBar, java.awt.BorderLayout.LINE_START);
 
-        pnTopBar.setBackground(new java.awt.Color(192, 167, 150));
+        pnTopBar.setBackground(new java.awt.Color(104, 132, 179));
 
         javax.swing.GroupLayout pnTopBarLayout = new javax.swing.GroupLayout(pnTopBar);
         pnTopBar.setLayout(pnTopBarLayout);
@@ -126,7 +127,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
 
         getContentPane().add(pnTopBar, java.awt.BorderLayout.PAGE_START);
 
-        pnUtama2.setBackground(new java.awt.Color(212, 187, 170));
+        pnUtama2.setBackground(new java.awt.Color(224, 235, 245));
         pnUtama2.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout pnUtama1Layout = new javax.swing.GroupLayout(pnUtama1);
@@ -206,7 +207,8 @@ public class FormDashboardFrame extends javax.swing.JFrame {
     private javax.swing.JPanel pnUtama1;
     private javax.swing.JPanel pnUtama2;
     // End of variables declaration//GEN-END:variables
-
+   
+      
     private void execute() {
         ImageIcon iconTransaksi = new ImageIcon(getClass().getResource("/Icon/TransaksiLight48.png"));
         ImageIcon iconEvent = new ImageIcon(getClass().getResource("/Icon/EventLight48.png"));
@@ -216,6 +218,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         ImageIcon subiconKasir = new ImageIcon(getClass().getResource("/Icon/KasirLight48.png"));
         ImageIcon subiconBarang = new ImageIcon(getClass().getResource("/Icon/BarangLight48.png"));
         ImageIcon subiconStok = new ImageIcon(getClass().getResource("/Icon/StokLight48.png"));
+        
         FormMenuItem subMenuKasir = new FormMenuItem(null, subiconKasir, true, "Kasir", (ActionEvent e) -> {
             pnUtama2.removeAll();
             pnUtama2.add(new Transaksi.FormKasirPanel());
@@ -256,7 +259,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         });
         addMenu(menuKasir, menuBarang, menuPegawai, menuEvent);
     }
-
+ 
     private void addMenu(FormMenuItem... menu) {
         for (FormMenuItem menus : menu) {
             pnMenu.add(menus);
@@ -266,5 +269,10 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             }
         }
         pnMenu.revalidate();
+        
     }
-}
+   
+ 
+}                                              
+
+

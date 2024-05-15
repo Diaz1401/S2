@@ -6,6 +6,7 @@ package Transaksi;
 
 import Koneksi.Koneksi;
 import com.formdev.flatlaf.FlatClientProperties;
+import java.awt.Color;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,11 +28,13 @@ public class FormKasirPanel extends javax.swing.JPanel {
     private static PreparedStatement pst;
     public static String[] barang = new String[10];
 
+    
     /**
      * Creates new form FormEventPanel
      */
     public FormKasirPanel() {
         initComponents();
+        transparan();
         txtIDPegawai.setText(Login.FormLoginFrame.namaPegawai);
         txtTransaksi.setText(GenerateID()[0]);
         txtDTransaksi.setText(GenerateID()[1]);
@@ -41,7 +44,13 @@ public class FormKasirPanel extends javax.swing.JPanel {
         lbTitleKasir.putClientProperty(FlatClientProperties.STYLE, ""
                 + "font:+bold +20");
     }
-
+    public void transparan(){
+        btnPilih.setBackground(new Color(0,0,0,0));
+        BTNHITUNG.setBackground(new Color(0,0,0,0));
+        BTNPROSES.setBackground(new Color(0,0,0,0));
+       
+        
+    }
     public String[] GenerateID() {
         String id[] = new String[2];
         Random random = new Random();
@@ -65,18 +74,18 @@ public class FormKasirPanel extends javax.swing.JPanel {
         lbTitleKasir = new javax.swing.JLabel();
         txtIDPegawai = new javax.swing.JTextField();
         txtTransaksi = new javax.swing.JTextField();
-        btnFinal = new javax.swing.JButton();
         txtDTransaksi = new javax.swing.JTextField();
+        BTNPROSES = new javax.swing.JButton();
+        BTNHITUNG = new javax.swing.JButton();
         btnPilih = new javax.swing.JButton();
         lbTotal = new javax.swing.JLabel();
-        btnHitung = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtKeterangan = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(212, 187, 170));
+        setBackground(new java.awt.Color(215, 223, 235));
         setPreferredSize(new java.awt.Dimension(453, 453));
 
         pnKasir.setPreferredSize(new java.awt.Dimension(960, 600));
@@ -100,41 +109,35 @@ public class FormKasirPanel extends javax.swing.JPanel {
         txtTransaksi.setEnabled(false);
         pnKasir.add(txtTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 163, -1));
 
-        btnFinal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/prosesbutton.png"))); // NOI18N
-        btnFinal.setBorder(null);
-        btnFinal.setEnabled(false);
-        btnFinal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinalActionPerformed(evt);
-            }
-        });
-        pnKasir.add(btnFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, 100, 40));
-
         txtDTransaksi.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtDTransaksi.setBorder(null);
         txtDTransaksi.setEnabled(false);
         pnKasir.add(txtDTransaksi, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 163, -1));
 
-        btnPilih.setBackground(new java.awt.Color(232, 207, 190));
-        btnPilih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/pilihbarangbutton.png"))); // NOI18N
+        BTNPROSES.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BTNPROSES.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNPROSESActionPerformed(evt);
+            }
+        });
+        pnKasir.add(BTNPROSES, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 450, 100, 40));
+
+        BTNHITUNG.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        BTNHITUNG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTNHITUNGActionPerformed(evt);
+            }
+        });
+        pnKasir.add(BTNHITUNG, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 100, 40));
+
         btnPilih.setBorder(null);
         btnPilih.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPilihActionPerformed(evt);
             }
         });
-        pnKasir.add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, -1, 40));
-        pnKasir.add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 150, 35));
-
-        btnHitung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/hitungbutton.png"))); // NOI18N
-        btnHitung.setBorder(null);
-        btnHitung.setEnabled(false);
-        btnHitung.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHitungActionPerformed(evt);
-            }
-        });
-        pnKasir.add(btnHitung, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, 180, 40));
+        pnKasir.add(btnPilih, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 170, 30));
+        pnKasir.add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 325, 150, 30));
         pnKasir.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 82, -1, -1));
 
         txtKeterangan.setColumns(20);
@@ -144,8 +147,8 @@ public class FormKasirPanel extends javax.swing.JPanel {
         pnKasir.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, 400, 190));
         pnKasir.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 330, -1, -1));
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconform/formkasirpanel.png"))); // NOI18N
+        jLabel6.setBackground(new java.awt.Color(119, 120, 118));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/kasir_1.png"))); // NOI18N
         pnKasir.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
         jLabel6.getAccessibleContext().setAccessibleDescription("");
 
@@ -154,9 +157,9 @@ public class FormKasirPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnKasir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,71 +170,16 @@ public class FormKasirPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalActionPerformed
-        // Tanggal
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String datetime = LocalDateTime.now().format(formatter);
-
-        // Insert into tabel transaksi
-        try {
-            cn = Koneksi.koneksiDB();
-            String query1 = "INSERT INTO transaksi (id_transaksi, keterangan";
-            String query2 = "INSERT INTO detail_transaksi (id_detail_transaksi, id_transaksi, id_pegawai, tanggal, total) VALUES (?, ?, ?, ?, ?)";
-
-
-            // for id_barang_0 to id_barang_9
-            for (int i = 0; i < 10; i++) {
-                query1 += ", id_barang_" + i;
-            }
-
-            // id_transaksi, id_pegawai, keterangan, tanggal
-            query1 += ") VALUES (?, ?";
-
-            // for id_barang_0 to id_barang_9
-            for (int i = 0; i < 10; i++) {
-                query1 += ", ?";
-            }
-
-            query1 += ")";
-
-            pst = cn.prepareStatement(query1);
-            pst.setString(1, txtTransaksi.getText()); // id_transaksi
-            pst.setString(2, txtKeterangan.getText()); // keterangan
-
-            // Add id_barang values from barang array
-            for (int i = 0; i < 10; i++) {
-                if (barang[i] != null) {
-                    pst.setString(3 + i, barang[i]);
-                } else {
-                    pst.setNull(3 + i, Types.VARCHAR);
-                }
-            }
-
-            pst.executeUpdate();
-            pst = cn.prepareStatement(query2);
-            pst.setString(1, txtDTransaksi.getText()); // id_detail_transaksi
-            pst.setString(2, txtTransaksi.getText()); // id_transaksi
-            pst.setString(3, txtIDPegawai.getText()); // id_pegawai
-            pst.setString(4, datetime); // tanggal
-            pst.setString(5, lbTotal.getText()); // total
-
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Transaksi berhasil !!!");
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Transaksi gagal, " + e.getMessage());
-        }
-
-        btnFinal.setEnabled(false);
-        btnPilih.setEnabled(true);
-        btnHitung.setEnabled(false);
-    }//GEN-LAST:event_btnFinalActionPerformed
-
     private void btnPilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilihActionPerformed
         new FormPilihBarangFrame().setVisible(true);
     }//GEN-LAST:event_btnPilihActionPerformed
 
-    private void btnHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHitungActionPerformed
-        int totalPrice = 0; // Total harga
+    private void txtIDPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDPegawaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDPegawaiActionPerformed
+
+    private void BTNHITUNGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNHITUNGActionPerformed
+       int totalPrice = 0; // Total harga
         HashMap<String, Integer> itemCount = new HashMap<>(); // Map untuk menyimpan jumlah barang
         HashMap<String, String> namaMap = new HashMap<>(); // Map untuk menyimpan pemetaan id_barang -> nama
 
@@ -307,17 +255,72 @@ public class FormKasirPanel extends javax.swing.JPanel {
         }
 
         lbTotal.setText(String.valueOf(totalPrice));
-        btnFinal.setEnabled(true);
-    }//GEN-LAST:event_btnHitungActionPerformed
+        BTNHITUNG.setEnabled(true);
+    }//GEN-LAST:event_BTNHITUNGActionPerformed
+    
+    private void BTNPROSESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNPROSESActionPerformed
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String datetime = LocalDateTime.now().format(formatter);
 
-    private void txtIDPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDPegawaiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDPegawaiActionPerformed
+        // Insert into tabel transaksi
+        try {
+            cn = Koneksi.koneksiDB();
+            String query1 = "INSERT INTO transaksi (id_transaksi, keterangan";
+            String query2 = "INSERT INTO detail_transaksi (id_detail_transaksi, id_transaksi, id_pegawai, tanggal, total) VALUES (?, ?, ?, ?, ?)";
+
+
+            // for id_barang_0 to id_barang_9
+            for (int i = 0; i < 10; i++) {
+                query1 += ", id_barang_" + i;
+            }
+
+            // id_transaksi, id_pegawai, keterangan, tanggal
+            query1 += ") VALUES (?, ?";
+
+            // for id_barang_0 to id_barang_9
+            for (int i = 0; i < 10; i++) {
+                query1 += ", ?";
+            }
+
+            query1 += ")";
+
+            pst = cn.prepareStatement(query1);
+            pst.setString(1, txtTransaksi.getText()); // id_transaksi
+            pst.setString(2, txtKeterangan.getText()); // keterangan
+
+            // Add id_barang values from barang array
+            for (int i = 0; i < 10; i++) {
+                if (barang[i] != null) {
+                    pst.setString(3 + i, barang[i]);
+                } else {
+                    pst.setNull(3 + i, Types.VARCHAR);
+                }
+            }
+
+            pst.executeUpdate();
+            pst = cn.prepareStatement(query2);
+            pst.setString(1, txtDTransaksi.getText()); // id_detail_transaksi
+            pst.setString(2, txtTransaksi.getText()); // id_transaksi
+            pst.setString(3, txtIDPegawai.getText()); // id_pegawai
+            pst.setString(4, datetime); // tanggal
+            pst.setString(5, lbTotal.getText()); // total
+
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Transaksi berhasil !!!");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Transaksi gagal, " + e.getMessage());
+        }
+
+        BTNPROSES.hide();
+        btnPilih.setEnabled(true);
+        BTNHITUNG.hide();
+        
+    }//GEN-LAST:event_BTNPROSESActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFinal;
-    public static javax.swing.JButton btnHitung;
+    public static javax.swing.JButton BTNHITUNG;
+    private javax.swing.JButton BTNPROSES;
     private javax.swing.JButton btnPilih;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
