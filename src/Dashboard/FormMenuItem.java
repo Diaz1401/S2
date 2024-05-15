@@ -71,6 +71,8 @@ public class FormMenuItem extends javax.swing.JPanel {
             }
         });
 
+        pnMainMenu.setBackground(new java.awt.Color(104, 132, 179));
+
         lbMenu.setText("Menu Item . . .");
 
         javax.swing.GroupLayout pnMainMenuLayout = new javax.swing.GroupLayout(pnMainMenu);
