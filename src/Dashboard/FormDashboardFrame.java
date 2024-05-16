@@ -198,6 +198,7 @@ public class FormDashboardFrame extends javax.swing.JFrame {
         ImageIcon iconEvent = new ImageIcon(getClass().getResource("/Icon/EventLight48.png"));
         ImageIcon iconGudang = new ImageIcon(getClass().getResource("/Icon/GudangLight48.png"));
         ImageIcon iconPegawai = new ImageIcon(getClass().getResource("/Icon/PegawaiLight48.png"));
+        ImageIcon iconProfit = new ImageIcon(getClass().getResource("/Icon/ProfitLight48.png"));
         ImageIcon subiconList = new ImageIcon(getClass().getResource("/Icon/ListLight48.png"));
         ImageIcon subiconKasir = new ImageIcon(getClass().getResource("/Icon/KasirLight48.png"));
         ImageIcon subiconBarang = new ImageIcon(getClass().getResource("/Icon/BarangLight48.png"));
@@ -241,7 +242,13 @@ public class FormDashboardFrame extends javax.swing.JFrame {
             pnUtama2.repaint();
             pnUtama2.revalidate();
         });
-        addMenu(menuKasir, menuBarang, menuPegawai, menuEvent);
+        FormMenuItem menuProfit = new FormMenuItem(iconProfit, null, false, "Profit", (ActionEvent e) -> {
+            pnUtama2.removeAll();
+            pnUtama2.add(new Profit.FormProfitPanel());
+            pnUtama2.repaint();
+            pnUtama2.revalidate();
+        });
+        addMenu(menuKasir, menuBarang, menuPegawai, menuEvent,menuProfit);
     }
  
     private void addMenu(FormMenuItem... menu) {

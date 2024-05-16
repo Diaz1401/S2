@@ -9,6 +9,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Koneksi.Koneksi;
+import java.awt.Color;
 import java.awt.print.PrinterException;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
@@ -28,6 +29,7 @@ public class FormProfitPanel extends javax.swing.JPanel {
     private static ResultSet rs;
     private static Statement st;
     private static PreparedStatement pst;
+    
 
     /**
      * Creates new form FormEventPanel
@@ -35,11 +37,16 @@ public class FormProfitPanel extends javax.swing.JPanel {
     public FormProfitPanel() {
         initComponents();
         UpdateTable();
+        transparan();
         pnEvent.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:12;" // Sudut
                 + "background:$Login.background");
-        lbTitleEvent.putClientProperty(FlatClientProperties.STYLE, ""
-                + "font:+bold +20");
+//        lbTitleEvent.putClientProperty(FlatClientProperties.STYLE, ""
+//                + "font:+bold +20");
+    }
+    public void transparan(){
+        btnPrint.setBackground(new Color(0,0,0,0));
+        
     }
 
     public void UpdateTable() {
@@ -115,15 +122,17 @@ public class FormProfitPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         pnEvent = new javax.swing.JPanel();
-        lbTitleEvent = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
         btnPrint = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(215, 223, 235));
+
+        pnEvent.setBackground(new java.awt.Color(215, 223, 235));
+        pnEvent.setInheritsPopupMenu(true);
         pnEvent.setPreferredSize(new java.awt.Dimension(960, 600));
-
-        lbTitleEvent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbTitleEvent.setText("Akun Pegawai");
+        pnEvent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,54 +149,33 @@ public class FormProfitPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Table);
 
-        btnPrint.setText("PRINT");
+        pnEvent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 87, 840, 400));
+
+        btnPrint.setBorder(null);
         btnPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintActionPerformed(evt);
             }
         });
+        pnEvent.add(btnPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 510, 90, 40));
 
-        javax.swing.GroupLayout pnEventLayout = new javax.swing.GroupLayout(pnEvent);
-        pnEvent.setLayout(pnEventLayout);
-        pnEventLayout.setHorizontalGroup(
-            pnEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnEventLayout.createSequentialGroup()
-                .addContainerGap(131, Short.MAX_VALUE)
-                .addGroup(pnEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
-                    .addComponent(lbTitleEvent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(132, Short.MAX_VALUE))
-            .addGroup(pnEventLayout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(btnPrint)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pnEventLayout.setVerticalGroup(
-            pnEventLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnEventLayout.createSequentialGroup()
-                .addComponent(lbTitleEvent, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(btnPrint)
-                .addContainerGap())
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/PROFIT.png"))); // NOI18N
+        pnEvent.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnEvent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnEvent, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -240,8 +228,8 @@ public class FormProfitPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
     private javax.swing.JButton btnPrint;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbTitleEvent;
     private javax.swing.JPanel pnEvent;
     // End of variables declaration//GEN-END:variables
 }

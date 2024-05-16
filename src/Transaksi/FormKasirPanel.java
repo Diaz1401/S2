@@ -179,83 +179,155 @@ public class FormKasirPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtIDPegawaiActionPerformed
 
     private void BTNHITUNGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNHITUNGActionPerformed
-       int totalPrice = 0; // Total harga
-        HashMap<String, Integer> itemCount = new HashMap<>(); // Map untuk menyimpan jumlah barang
-        HashMap<String, String> namaMap = new HashMap<>(); // Map untuk menyimpan pemetaan id_barang -> nama
-
-        // Hitung kemunculan setiap item dalam array barang dan ambil nama dari database
-        for (String item : barang) {
-            if (item != null) {
-                // Periksa apakah item sudah ada dalam map itemCount
-                if (itemCount.containsKey(item)) {
-                    // Jika ya, tambahkan jumlahnya
-                    itemCount.put(item, itemCount.get(item) + 1);
-                } else {
-                    // Jika tidak, inisialisasi jumlah dengan 1
-                    itemCount.put(item, 1);
-                    try {
-                        // Ambil koneksi ke database
-                        cn = Koneksi.koneksiDB();
-                        String query = "SELECT * FROM barang WHERE id_barang = ?";
-                        pst = cn.prepareStatement(query);
-                        pst.setString(1, item);
-                        rs = pst.executeQuery();
-                        if (rs.next()) {
-                            // Ambil nama dari hasil pencarian
-                            String nama = rs.getString("nama");
-                            // Simpan pemetaan id_barang -> nama dalam namaMap
-                            namaMap.put(item, nama);
-                        }
-                    } catch (SQLException e) {
-                        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-                    }
-                }
-            }
-        }
-
-        // Buat StringBuilder untuk menyusun hasil akhir
-        StringBuilder result = new StringBuilder();
-
-        // Iterasi melalui array barang untuk menyisipkan item dengan jumlah
-        Set<String> uniqueItems = new HashSet<>();
-        for (String item : barang) {
-            if (item != null && !uniqueItems.contains(item)) { // Jika item belum ditambahkan sebelumnya
-                uniqueItems.add(item); // Tandai item sebagai sudah ditambahkan
-                // Ambil nama dari namaMap menggunakan id_barang
-                String nama = namaMap.get(item);
-                // Periksa apakah jumlahnya lebih dari 1, tambahkan "x[jumlah]"
-                if (itemCount.get(item) > 1) {
-                    result.append(nama).append(" x").append(itemCount.get(item));
-                } else {
-                    result.append(nama);
-                }
-                result.append("\n"); // Tambahkan baris baru
-            }
-        }
-        txtKeterangan.setText(result.toString());
-
-        // Calculate the total price
-        for (String barangs : barang) {
-            if (barangs != null) {
+//       int totalPrice = 0; // Total harga
+//        HashMap<String, Integer> itemCount = new HashMap<>(); // Map untuk menyimpan jumlah barang
+//        HashMap<String, String> namaMap = new HashMap<>(); // Map untuk menyimpan pemetaan id_barang -> nama
+//
+//        // Hitung kemunculan setiap item dalam array barang dan ambil nama dari database
+//        for (String item : barang) {
+//            if (item != null) {
+//                // Periksa apakah item sudah ada dalam map itemCount
+//                if (itemCount.containsKey(item)) {
+//                    // Jika ya, tambahkan jumlahnya
+//                    itemCount.put(item, itemCount.get(item) + 1);
+//                } else {
+//                    // Jika tidak, inisialisasi jumlah dengan 1
+//                    itemCount.put(item, 1);
+//                    try {
+//                        // Ambil koneksi ke database
+//                        cn = Koneksi.koneksiDB();
+//                        String query = "SELECT * FROM barang WHERE id_barang = ?";
+//                        pst = cn.prepareStatement(query);
+//                        pst.setString(1, item);
+//                        rs = pst.executeQuery();
+//                        if (rs.next()) {
+//                            // Ambil nama dari hasil pencarian
+//                            String nama = rs.getString("nama");
+//                            // Simpan pemetaan id_barang -> nama dalam namaMap
+//                            namaMap.put(item, nama);
+//                        }
+//                    } catch (SQLException e) {
+//                        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+//                    }
+//                }
+//            }
+//        }
+//
+//        // Buat StringBuilder untuk menyusun hasil akhir
+//        StringBuilder result = new StringBuilder();
+//
+//        // Iterasi melalui array barang untuk menyisipkan item dengan jumlah
+//        Set<String> uniqueItems = new HashSet<>();
+//        for (String item : barang) {
+//            if (item != null && !uniqueItems.contains(item)) { // Jika item belum ditambahkan sebelumnya
+//                uniqueItems.add(item); // Tandai item sebagai sudah ditambahkan
+//                // Ambil nama dari namaMap menggunakan id_barang
+//                String nama = namaMap.get(item);
+//                // Periksa apakah jumlahnya lebih dari 1, tambahkan "x[jumlah]"
+//                if (itemCount.get(item) > 1) {
+//                    result.append(nama).append(" x").append(itemCount.get(item));
+//                } else {
+//                    result.append(nama);
+//                }
+//                result.append("\n"); // Tambahkan baris baru
+//            }
+//        }
+//        txtKeterangan.setText(result.toString());
+//
+//        // Calculate the total price
+//        for (String barangs : barang) {
+//            if (barangs != null) {
+//                try {
+//                    cn = Koneksi.koneksiDB();
+//                    String query = "SELECT * FROM barang WHERE id_barang = ?";
+//                    pst = cn.prepareStatement(query);
+//                    pst.setString(1, barangs);
+//                    rs = pst.executeQuery();
+//                    if (rs.next()) {
+//                        int harga = rs.getInt("harga");
+//                        // Ambil keuntungan 2000
+//                        totalPrice += harga + 2000;
+//                    }
+//                } catch (SQLException e) {
+//                    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+//                }
+//            }
+//        }
+//
+//        lbTotal.setText(String.valueOf(totalPrice));
+//        BTNHITUNG.setEnabled(true);private void BTNHITUNGActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    int totalPrice = 0; // Total harga
+    HashMap<String, Integer> itemCount = new HashMap<>(); // Map untuk menyimpan jumlah barang
+    HashMap<String, String> namaMap = new HashMap<>(); // Map untuk menyimpan pemetaan id_barang -> nama
+    // Hitung kemunculan setiap item dalam array barang dan ambil nama dari database
+    for (String item : barang) {
+        if (item != null) {
+            // Periksa apakah item sudah ada dalam map itemCount
+            if (itemCount.containsKey(item)) {
+                // Jika ya, tambahkan jumlahnya
+                itemCount.put(item, itemCount.get(item) + 1);
+            } else {
+                // Jika tidak, inisialisasi jumlah dengan 1
+                itemCount.put(item, 1);
                 try {
+                    // Ambil koneksi ke database
                     cn = Koneksi.koneksiDB();
                     String query = "SELECT * FROM barang WHERE id_barang = ?";
                     pst = cn.prepareStatement(query);
-                    pst.setString(1, barangs);
+                    pst.setString(1, item);
                     rs = pst.executeQuery();
                     if (rs.next()) {
-                        int harga = rs.getInt("harga");
-                        // Ambil keuntungan 2000
-                        totalPrice += harga + 2000;
+                        // Ambil nama dari hasil pencarian
+                        String nama = rs.getString("nama");
+                        // Simpan pemetaan id_barang -> nama dalam namaMap
+                        namaMap.put(item, nama);
                     }
                 } catch (SQLException e) {
                     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
                 }
             }
         }
-
-        lbTotal.setText(String.valueOf(totalPrice));
-        BTNHITUNG.setEnabled(true);
+    }
+    // Buat StringBuilder untuk menyusun hasil akhir
+    StringBuilder result = new StringBuilder();
+    // Iterasi melalui array barang untuk menyisipkan item dengan jumlah
+    Set<String> uniqueItems = new HashSet<>();
+    for (String item : barang) {
+        if (item != null && !uniqueItems.contains(item)) { // Jika item belum ditambahkan sebelumnya
+            uniqueItems.add(item); // Tandai item sebagai sudah ditambahkan
+            // Ambil nama dari namaMap menggunakan id_barang
+            String nama = namaMap.get(item);
+            // Periksa apakah jumlahnya lebih dari 1, tambahkan "x[jumlah]"
+            if (itemCount.get(item) > 1) {
+                result.append(nama).append(" x").append(itemCount.get(item));
+            } else {
+                result.append(nama);
+            }
+            result.append("\n"); // Tambahkan baris baru
+        }
+    }
+    txtKeterangan.setText(result.toString());
+    // Calculate the total price
+    for (String barangs : barang) {
+        if (barangs != null) {
+            try {
+                cn = Koneksi.koneksiDB();
+                String query = "SELECT * FROM barang WHERE id_barang = ?";
+                pst = cn.prepareStatement(query);
+                pst.setString(1, barangs);
+                rs = pst.executeQuery();
+                if (rs.next()) {
+                    int harga = rs.getInt("harga");
+                    // Tambahkan keuntungan 2000 rupiah
+                    totalPrice += harga + 2000;
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            }
+        }
+    }
+    lbTotal.setText(String.valueOf(totalPrice));
+    BTNHITUNG.setEnabled(true);
     }//GEN-LAST:event_BTNHITUNGActionPerformed
     
     private void BTNPROSESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNPROSESActionPerformed
