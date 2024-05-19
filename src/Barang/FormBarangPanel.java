@@ -46,6 +46,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
     public void transparan(){
         tambahbarang.setBackground(new Color(0,0,0,0));
         ubahtn.setBackground(new Color(0,0,0,0));
+        btnHapus.setBackground(new Color(0,0,0,0));
         
     }
     public void UpdateTable() {
@@ -103,6 +104,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
         ubahtn = new javax.swing.JButton();
         txtStok = new javax.swing.JTextField();
         tambahbarang = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(215, 223, 235));
@@ -133,7 +135,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Table);
 
-        pnEvent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 660, 370));
+        pnEvent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 660, 300));
 
         txtNama.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNama.setBorder(null);
@@ -149,7 +151,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
                 ubahtnActionPerformed(evt);
             }
         });
-        pnEvent.add(ubahtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 540, 90, 30));
+        pnEvent.add(ubahtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 90, 30));
 
         txtStok.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtStok.setText("0");
@@ -163,9 +165,12 @@ public class FormBarangPanel extends javax.swing.JPanel {
                 tambahbarangActionPerformed(evt);
             }
         });
-        pnEvent.add(tambahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 90, 40));
+        pnEvent.add(tambahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 90, 40));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/BARANG.png"))); // NOI18N
+        btnHapus.setBorder(null);
+        pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, 90, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/BARANG (1).png"))); // NOI18N
         pnEvent.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -269,6 +274,7 @@ public class FormBarangPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table;
+    private javax.swing.JButton btnHapus;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTitleEvent;
