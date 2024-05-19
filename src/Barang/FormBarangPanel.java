@@ -168,6 +168,11 @@ public class FormBarangPanel extends javax.swing.JPanel {
         pnEvent.add(tambahbarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 420, 90, 40));
 
         btnHapus.setBorder(null);
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
         pnEvent.add(btnHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 530, 90, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONTA/BARANG (1).png"))); // NOI18N
@@ -270,6 +275,28 @@ public class FormBarangPanel extends javax.swing.JPanel {
         // Update table
         UpdateTable();
     }//GEN-LAST:event_ubahtnActionPerformed
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        // get value from first row
+        String id_barang = txtBarang.getText();
+
+        try {
+            String sql_del = "DELETE from barang WHERE id_barang = ?";
+            cn = Koneksi.koneksiDB();
+            pst = cn.prepareStatement(sql_del);
+
+            // Set parameter
+            pst.setString(1, id_barang);
+
+            // Execute
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(null, "Data Berhasil Di Hapus");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Gagal menghapus data: " + e.getMessage());
+        }
+        UpdateTable();
+    }//GEN-LAST:event_btnHapusActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
