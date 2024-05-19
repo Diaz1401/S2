@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2024 at 03:13 AM
+-- Generation Time: May 19, 2024 at 04:41 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,15 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `nama`, `harga`, `stok`) VALUES
-('BRG_57654709', 'Indomie Goreng', 6000, 0);
+('BRG_11543584', 'Nutrisari', 2800, 0),
+('BRG_12236349', 'Top White Coffee', 2000, 13),
+('BRG_16879568', 'Aqua', 4000, 5),
+('BRG_25715283', 'Torabika Mocca', 3200, 3),
+('BRG_42090751', 'Indomie', 4000, 0),
+('BRG_42277430', 'Luwak White Coffee', 2500, 0),
+('BRG_52694509', 'Torabika Cappucino', 3200, 0),
+('BRG_57229399', 'Kopi Kapal Api', 2300, 0),
+('BRG_80943990', 'Pop Mie', 5000, 0);
 
 -- --------------------------------------------------------
 
@@ -54,6 +62,21 @@ CREATE TABLE `barang_masuk` (
   `total` int(11) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `barang_masuk`
+--
+
+INSERT INTO `barang_masuk` (`id_stok`, `id_barang`, `jumlah`, `total`, `tanggal`) VALUES
+('STOK_12249265', 'BRG_16879568', 15, 60000, '2024-02-01'),
+('STOK_26994337', 'BRG_42090751', 11, 44000, '2024-05-03'),
+('STOK_28905188', 'BRG_57229399', 15, 34500, '2024-02-03'),
+('STOK_35310167', 'BRG_80943990', 11, 55000, '2024-01-02'),
+('STOK_44663622', 'BRG_42277430', 9, 22500, '2024-04-03'),
+('STOK_66820074', 'BRG_11543584', 12, 33600, '2024-04-01'),
+('STOK_73979686', 'BRG_25715283', 13, 41600, '2024-05-02'),
+('STOK_94220190', 'BRG_12236349', 13, 26000, '2024-03-01'),
+('STOK_96742260', 'BRG_52694509', 8, 25600, '2024-04-03');
 
 -- --------------------------------------------------------
 
@@ -74,7 +97,14 @@ CREATE TABLE `detail_transaksi` (
 --
 
 INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `id_transaksi`, `id_pegawai`, `tanggal`, `total`) VALUES
-('DTRX_61179075', 'TRX_31603246', 'y', '2024-03-27 09:04:49', 12000);
+('DTRX_15451878', 'TRX_69233450', 'admin', '2024-05-19 09:36:35', 48000),
+('DTRX_26642052', 'TRX_47148167', 'admin', '2024-05-19 09:37:48', 43000),
+('DTRX_37689512', 'TRX_65542224', 'admin', '2024-05-19 09:36:56', 51200),
+('DTRX_71466133', 'TRX_44083158', 'y', '2024-05-19 09:41:04', 52000),
+('DTRX_77575989', 'TRX_31565285', 'admin', '2024-05-19 09:37:32', 46500),
+('DTRX_92312684', 'TRX_56993442', 'y', '2024-05-19 09:39:52', 28500),
+('DTRX_94148962', 'TRX_58184768', 'y', '2024-05-19 09:40:06', 60000),
+('DTRX_98278222', 'TRX_49144703', 'y', '2024-05-19 09:40:47', 60000);
 
 -- --------------------------------------------------------
 
@@ -116,6 +146,7 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id_pegawai`, `password`, `nama`, `jabatan`, `gaji`) VALUES
+('admin', 'admin', 'admin', 'admin', 0),
 ('y', 'y', 'y', 'y', 0);
 
 -- --------------------------------------------------------
@@ -144,7 +175,14 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_barang_0`, `id_barang_1`, `id_barang_2`, `id_barang_3`, `id_barang_4`, `id_barang_5`, `id_barang_6`, `id_barang_7`, `id_barang_8`, `id_barang_9`, `keterangan`) VALUES
-('TRX_31603246', 'BRG_57654709', 'BRG_57654709', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Indomie Goreng x2\n');
+('TRX_31565285', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42277430', 'BRG_42090751', 'Luwak White Coffee x9\nIndomie\n'),
+('TRX_44083158', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'BRG_25715283', 'Torabika Mocca x10\n'),
+('TRX_47148167', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'Kopi Kapal Api x10\n'),
+('TRX_49144703', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'BRG_16879568', 'Aqua x10\n'),
+('TRX_56993442', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_57229399', 'BRG_80943990', NULL, NULL, NULL, NULL, 'Kopi Kapal Api x5\nPop Mie\n'),
+('TRX_58184768', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'BRG_42090751', 'Indomie x10\n'),
+('TRX_65542224', 'BRG_11543584', 'BRG_11543584', 'BRG_52694509', 'BRG_52694509', 'BRG_52694509', 'BRG_52694509', 'BRG_52694509', 'BRG_52694509', 'BRG_52694509', 'BRG_52694509', 'Nutrisari x2\nTorabika Cappucino x8\n'),
+('TRX_69233450', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'BRG_11543584', 'Nutrisari x10\n');
 
 --
 -- Indexes for dumped tables
@@ -198,38 +236,6 @@ ALTER TABLE `transaksi`
   ADD KEY `id_barang_7` (`id_barang_7`),
   ADD KEY `id_barang_8` (`id_barang_8`),
   ADD KEY `id_barang_9` (`id_barang_9`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `barang_masuk`
---
-ALTER TABLE `barang_masuk`
-  ADD CONSTRAINT `barang_masuk_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id_barang`);
-
---
--- Constraints for table `detail_transaksi`
---
-ALTER TABLE `detail_transaksi`
-  ADD CONSTRAINT `detail_transaksi_ibfk_1` FOREIGN KEY (`id_transaksi`) REFERENCES `transaksi` (`id_transaksi`),
-  ADD CONSTRAINT `detail_transaksi_ibfk_2` FOREIGN KEY (`id_pegawai`) REFERENCES `pegawai` (`id_pegawai`);
-
---
--- Constraints for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_barang_0`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_10` FOREIGN KEY (`id_barang_9`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`id_barang_1`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_3` FOREIGN KEY (`id_barang_2`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_4` FOREIGN KEY (`id_barang_3`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_5` FOREIGN KEY (`id_barang_4`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_6` FOREIGN KEY (`id_barang_5`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_7` FOREIGN KEY (`id_barang_6`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_8` FOREIGN KEY (`id_barang_7`) REFERENCES `barang` (`id_barang`),
-  ADD CONSTRAINT `transaksi_ibfk_9` FOREIGN KEY (`id_barang_8`) REFERENCES `barang` (`id_barang`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
