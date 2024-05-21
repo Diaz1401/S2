@@ -11,13 +11,27 @@ import javax.swing.table.DefaultTableModel;
 import Koneksi.Koneksi;
 import java.awt.Color;
 import java.awt.print.PrinterException;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -29,7 +43,6 @@ public class FormProfitPanel extends javax.swing.JPanel {
     private static ResultSet rs;
     private static Statement st;
     private static PreparedStatement pst;
-    
 
     /**
      * Creates new form FormEventPanel
@@ -44,9 +57,10 @@ public class FormProfitPanel extends javax.swing.JPanel {
 //        lbTitleEvent.putClientProperty(FlatClientProperties.STYLE, ""
 //                + "font:+bold +20");
     }
-    public void transparan(){
-        btnPrint.setBackground(new Color(0,0,0,0));
-        
+
+    public void transparan() {
+        btnPrint.setBackground(new Color(0, 0, 0, 0));
+
     }
 
     public void UpdateTable() {
@@ -79,11 +93,8 @@ public class FormProfitPanel extends javax.swing.JPanel {
             rs = st.executeQuery(query);
 
             while (rs.next()) {
-                String monthYear = rs.getString("month");
-                String monthName = getMonthName(monthYear);
-
                 tbl.addRow(new Object[]{
-                    monthName,
+                    rs.getString("month"),
                     rs.getInt("total_sales"),
                     rs.getInt("total_costs"),
                     rs.getInt("profitability")
@@ -204,25 +215,35 @@ public class FormProfitPanel extends javax.swing.JPanel {
 
 
     private void btnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintActionPerformed
+        File reportFile = new File(".");
         try {
-            // Get the current date
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date date = new Date();
-            String printedDate = dateFormat.format(date);
+            cn = Koneksi.koneksiDB();
+            st = cn.createStatement();
 
-            // Create the header and footer for printing
-            MessageFormat header = new MessageFormat("Laporan Keuntungan: " + printedDate);
-            MessageFormat footer = new MessageFormat("Page {0}");
+            // Query to calculate monthly profitability
+            String sql = "SELECT "
+                    + "   DATE_FORMAT(tanggal, '%Y-%m') AS month, "
+                    + "   SUM(CASE WHEN table_name = 'detail_transaksi' THEN total ELSE 0 END) AS total_sales, "
+                    + "   SUM(CASE WHEN table_name = 'barang_masuk' THEN total ELSE 0 END) AS total_costs, "
+                    + "   SUM(CASE WHEN table_name = 'detail_transaksi' THEN total ELSE 0 END) - "
+                    + "   SUM(CASE WHEN table_name = 'barang_masuk' THEN total ELSE 0 END) AS profitability "
+                    + "FROM ( "
+                    + "   SELECT 'detail_transaksi' AS table_name, tanggal, total FROM detail_transaksi "
+                    + "   UNION ALL "
+                    + "   SELECT 'barang_masuk' AS table_name, tanggal, total FROM barang_masuk "
+                    + ") AS combined "
+                    + "GROUP BY month "
+                    + "ORDER BY month;";
 
-            // Print the table with the document title and footer
-            boolean printed = Table.print(JTable.PrintMode.FIT_WIDTH, header, footer, true, null, true, null);
-            if (printed) {
-                JOptionPane.showMessageDialog(null, "Print successful!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Print canceled.");
-            }
-        } catch (PrinterException e) {
-            JOptionPane.showMessageDialog(null, "Failed to print: " + e.getMessage());
+            String dir = reportFile.getCanonicalPath() + "/src/Report/";
+            JasperDesign design = JRXmlLoader.load(dir + "report.jrxml");
+            JasperReport jr = JasperCompileManager.compileReport(design);
+            rs = st.executeQuery(sql);
+            JRResultSetDataSource rsDataSource = new JRResultSetDataSource(rs);
+            JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap(), rsDataSource);
+            JasperViewer.viewReport(jp);
+        } catch (IOException | SQLException | JRException e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
         }
     }//GEN-LAST:event_btnPrintActionPerformed
 

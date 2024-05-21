@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="40" bottomMargin="40" uuid="0bc588c9-6113-4359-aad1-db274c2bf46e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="e2e5244b-d161-4a1e-9d7d-6555c81be019"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+   DATE_FORMAT(tanggal, '%Y-%m') AS month,
+   SUM(CASE WHEN table_name = 'detail_transaksi' THEN total ELSE 0 END) AS total_sales,
+   SUM(CASE WHEN table_name = 'barang_masuk' THEN total ELSE 0 END) AS total_costs,
+   SUM(CASE WHEN table_name = 'detail_transaksi' THEN total ELSE 0 END) -
+   SUM(CASE WHEN table_name = 'barang_masuk' THEN total ELSE 0 END) AS profitability
+FROM (
+   SELECT 'detail_transaksi' AS table_name, tanggal, total FROM detail_transaksi
+   UNION ALL
+   SELECT 'barang_masuk' AS table_name, tanggal, total FROM barang_masuk
+) AS combined
+GROUP BY month
+ORDER BY month;]]>
+	</queryString>
+	<field name="month" class="java.lang.String"/>
+	<field name="total_sales" class="java.math.BigDecimal"/>
+	<field name="total_costs" class="java.math.BigDecimal"/>
+	<field name="profitability" class="java.math.BigDecimal"/>
+	<variable name="total_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="total_2" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="profitability_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{profitability}]]></variableExpression>
+	</variable>
+	<variable name="profitability_2" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{profitability}]]></variableExpression>
+	</variable>
+	<variable name="profitability_3" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{profitability}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="39" uuid="d5815fed-d588-491b-8fdb-0776c8fd2ac1"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Keuangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="39" width="555" height="20" uuid="4bf008b3-a4a0-418a-9d97-cbab859b3157"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kolam pancing Abah Agus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="555" height="20" uuid="608f0b06-a0a3-4cdc-9b8e-f045f164c752"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jl. Kedungpeluk, RT 05, RW 02, Kalipecabean, Candi, Sidoarjo]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="128" height="20" uuid="eb7e8c87-8410-4084-88a5-7b52bdc531e4"/>
+				<text><![CDATA[month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="0" width="128" height="20" uuid="c3c43bb9-29fd-435f-901c-e314867b318d"/>
+				<text><![CDATA[total_sales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="0" width="128" height="20" uuid="14e435e1-19e3-4851-9fa4-8b847626c66f"/>
+				<text><![CDATA[total_costs]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="0" width="131" height="20" uuid="733a3808-ad45-47e4-b287-7defcf73c9ed"/>
+				<text><![CDATA[profitability]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="128" height="20" uuid="2d9bfb8c-2522-45b8-87ed-3b2559e9e006"/>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="0" width="128" height="20" uuid="c0a33f25-e8e8-4fe2-884f-98374a5aae7c"/>
+				<textFieldExpression><![CDATA[$F{total_sales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="0" width="128" height="20" uuid="c41c9f58-36b0-46b4-bbab-969d05a17c42"/>
+				<textFieldExpression><![CDATA[$F{total_costs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="131" height="20" uuid="fe4b925c-69c9-4477-8576-c66713aaf8d0"/>
+				<textFieldExpression><![CDATA[$F{profitability}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="128" y="3" width="100" height="20" uuid="53f53912-3792-4bfd-9ecb-92be845f7e3c"/>
+				<textFieldExpression><![CDATA[$V{profitability_3}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="3" width="100" height="20" uuid="af088e89-235b-4352-a686-125bf8136276"/>
+				<text><![CDATA[Total keuntungan:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="-3" y="34" width="518" height="20" uuid="81b71929-34f4-4ca6-8565-9210ccbb1cba"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of" + " " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
