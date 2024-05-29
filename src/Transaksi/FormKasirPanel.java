@@ -7,6 +7,8 @@ package Transaksi;
 import Koneksi.Koneksi;
 import com.formdev.flatlaf.FlatClientProperties;
 import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,6 +17,15 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRResultSetDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -48,8 +59,6 @@ public class FormKasirPanel extends javax.swing.JPanel {
         btnPilih.setBackground(new Color(0,0,0,0));
         BTNHITUNG.setBackground(new Color(0,0,0,0));
         BTNPROSES.setBackground(new Color(0,0,0,0));
-       
-        
     }
     public String[] GenerateID() {
         String id[] = new String[2];
@@ -60,7 +69,35 @@ public class FormKasirPanel extends javax.swing.JPanel {
         id[1] = "DTRX_" + number;
         return id;
     }
+    public void GenerateStruk() {
+        File reportFile = new File(".");
+        try {
+            cn = Koneksi.koneksiDB();
+            st = cn.createStatement();
 
+            // Query to calculate monthly profitability
+            String sql = "SELECT t.*, dt.* " +
+                         "FROM transaksi t " +
+                         "JOIN detail_transaksi dt ON t.id_transaksi = dt.id_transaksi " +
+                         "WHERE dt.id_detail_transaksi = ( " +
+                         "    SELECT dt_inner.id_detail_transaksi " +
+                         "    FROM detail_transaksi dt_inner " +
+                         "    ORDER BY dt_inner.tanggal DESC " +
+                         "    LIMIT 1" +
+                         ");";
+
+
+            String dir = reportFile.getCanonicalPath() + "/src/Report/";
+            JasperDesign design = JRXmlLoader.load(dir + "struk.jrxml");
+            JasperReport jr = JasperCompileManager.compileReport(design);
+            rs = st.executeQuery(sql);
+            JRResultSetDataSource rsDataSource = new JRResultSetDataSource(rs);
+            JasperPrint jp = JasperFillManager.fillReport(jr, new HashMap(), rsDataSource);
+            JasperViewer.viewReport(jp);
+        } catch (IOException | SQLException | JRException e) {
+            JOptionPane.showMessageDialog(null, "Gagal memuat data: " + e.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -386,7 +423,7 @@ public class FormKasirPanel extends javax.swing.JPanel {
         BTNPROSES.hide();
         btnPilih.setEnabled(true);
         BTNHITUNG.hide();
-        
+        GenerateStruk();
     }//GEN-LAST:event_BTNPROSESActionPerformed
 
 

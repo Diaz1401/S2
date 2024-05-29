@@ -70,7 +70,7 @@ public class FormListPanel extends javax.swing.JPanel {
         try {
             cn = Koneksi.koneksiDB();
             st = cn.createStatement();
-            rs = st.executeQuery("SELECT * FROM detail_transaksi");
+            rs = st.executeQuery("SELECT * FROM detail_transaksi ORDER by tanggal DESC");
 
             while (rs.next()) {
                 tbl.addRow(new Object[]{
